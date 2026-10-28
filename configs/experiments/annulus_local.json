@@ -1,0 +1,13 @@
+{
+  "nr": 8,
+  "angular_ratio": 8,
+  "inner_radius": 0.5,
+  "outer_radius": 1.0,
+  "inner_value": 1.0,
+  "outer_value": 2.0,
+  "diffusivity": 1.0,
+  "boundary_mode": "dirichlet",
+  "convergence": [4, 8, 16],
+  "quadrature_order": 4,
+  "error_quadrature_order": 5
+}

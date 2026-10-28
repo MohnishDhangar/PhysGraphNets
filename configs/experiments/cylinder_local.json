@@ -1,0 +1,10 @@
+{
+  "nr": 8,
+  "side_ratio": 2,
+  "radius": 0.3,
+  "bounds": [-1.0, 1.0, -0.75, 0.75],
+  "center": [0.0, 0.0],
+  "case": "quadratic",
+  "boundary_mode": "cylinder_neumann",
+  "convergence": [4, 8, 16]
+}

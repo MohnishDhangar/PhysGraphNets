@@ -1,0 +1,17 @@
+.venv/
+.pignn-venv/
+.fenicsx-env/
+.reproduced-env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+outputs/*
+!outputs/.gitkeep
+!outputs/README.md
+data/*
+!data/.gitkeep
+!data/README.md

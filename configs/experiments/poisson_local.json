@@ -1,0 +1,6 @@
+{
+  "case": "sine",
+  "nx": 16,
+  "ny": 16,
+  "output": "outputs/phase1_local"
+}

@@ -1,0 +1,23 @@
+{
+  "case": "annulus_log",
+  "backend": "torch",
+  "torch_threads": 1,
+  "width": 16,
+  "depth": 2,
+  "collocation": 256,
+  "learning_rate": 0.003,
+  "seed": 7,
+  "steps": 3000,
+  "nx": 8,
+  "checkpoint_every": 500,
+  "validation_seed": 20007,
+  "holdout_points": 4096,
+  "boundary_points": 512,
+  "evaluation_quadrature_order": 5,
+  "acceptance": {
+    "relative_l2": 0.01,
+    "relative_h1_seminorm": 0.05,
+    "max_boundary_error": 1e-12,
+    "holdout_residual_rms": 0.2
+  }
+}

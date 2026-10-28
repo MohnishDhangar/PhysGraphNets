@@ -1,0 +1,6 @@
+{
+  "case": "sine",
+  "nx": 64,
+  "ny": 64,
+  "output": "outputs/phase1_cloud"
+}

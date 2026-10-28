@@ -1,0 +1,13 @@
+{
+  "backend": "torch",
+  "torch_threads": 1,
+  "case": "sine",
+  "width": 8,
+  "depth": 2,
+  "collocation": 128,
+  "learning_rate": 0.003,
+  "seed": 7,
+  "steps": 1000,
+  "nx": 16,
+  "checkpoint_every": 100
+}

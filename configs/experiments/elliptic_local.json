@@ -1,0 +1,8 @@
+{
+  "case": "variable_sine",
+  "nx": 16,
+  "grading": 1.3,
+  "convergence": [8, 16, 32],
+  "quadrature_order": 4,
+  "error_quadrature_order": 5
+}

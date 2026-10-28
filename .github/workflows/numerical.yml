@@ -1,0 +1,45 @@
+name: CPU numerical validation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+env:
+  OPENBLAS_NUM_THREADS: '1'
+  MPLBACKEND: Agg
+  UCX_TLS: self
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        backend: [base, torch]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - if: matrix.backend == 'torch'
+        run: |
+          python -m pip install -r configs/environments/torch_cpu.txt
+          python -c "import torch; assert torch.version.cuda is None"
+      - run: python -m pytest -q
+      - run: python scripts/mesh_convergence.py --sizes 8 16 32
+  fenicsx:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: configs/environments/fenicsx.yml
+          cache-environment: true
+      - run: |
+          python -m pip install -e '.[dev]'
+          python -m pip install -r configs/environments/torch_cpu.txt
+          python -c "import dolfinx, torch; assert torch.version.cuda is None"
+      - run: python -m pytest -q
+      - run: python scripts/mesh_convergence.py --sizes 8 16 32
+      - run: python scripts/compare_fenicsx.py --resolutions 4 8

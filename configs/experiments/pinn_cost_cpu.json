@@ -1,0 +1,8 @@
+{
+  "cases": ["sine", "variable_sine"],
+  "resolutions": [8, 16, 32],
+  "step_counts": [300, 1000],
+  "repeats": 3,
+  "target": {"relative_l2": 0.01, "relative_h1_seminorm": 0.06},
+  "training": {"width": 8, "depth": 2, "collocation": 128, "seed": 7}
+}

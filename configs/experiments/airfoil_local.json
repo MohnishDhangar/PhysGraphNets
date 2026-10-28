@@ -1,0 +1,12 @@
+{
+  "nr": 8,
+  "angular_ratio": 16,
+  "thickness": 0.12,
+  "chord": 1.0,
+  "farfield_radius": 2.0,
+  "center": [0.0, 0.0],
+  "rotation_degrees": 0.0,
+  "case": "quadratic",
+  "boundary_mode": "airfoil_neumann",
+  "convergence": [4, 8, 16]
+}
