@@ -1,0 +1,12 @@
+{
+  "dataset": "outputs/pre_gnn_20261028/square_dataset_extended/dataset_manifest.json",
+  "normalization": "outputs/pre_gnn_20261028/square_audit_extended/normalization.json",
+  "seeds": [0, 1, 2], "epochs": 120, "width": 32, "depth": 3,
+  "batch_size": 8, "learning_rate": 0.001,
+  "criteria": {
+    "relative_fem_l2": {"mean": 0.05, "max": 0.1},
+    "relative_fem_h1_seminorm": {"mean": 0.2, "max": 0.4},
+    "relative_equation_residual": {"mean": 0.1},
+    "max_dirichlet_error": {"max": 1e-12}
+  }
+}

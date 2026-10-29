@@ -34,11 +34,13 @@ def profile_area(thickness: float = .12, chord: float = 1.) -> float:
 def airfoil_mesh(nr: int, ntheta: int, *, thickness: float = .12,
                  chord: float = 1., farfield_radius: float = 2.,
                  center=(0., 0.), rotation_degrees: float = 0.,
-                 grading: float = 1.) -> Mesh2D:
+                 grading: float = 1., angular_bias: float = 1.) -> Mesh2D:
     """Triangulate between an airfoil and a concentric polygonal far field.
 
-    center is the chord midpoint. Angles are uniform in the body frame, with
-    leading and trailing vertices included exactly. Each ray intersects the
+    center is the chord midpoint. With angular_bias=1, angles are uniform in
+    the body frame, with leading and trailing vertices included exactly. A bias < 1 clusters
+    rays toward those endpoints using normalized (cos(theta), bias*sin(theta)).
+    Each ray intersects the
     convex symmetric profile once; bisection finds that intersection. Layers
     interpolate along the rays, so sectors cannot overlap. Facets are straight.
     """
@@ -51,11 +53,13 @@ def airfoil_mesh(nr: int, ntheta: int, *, thickness: float = .12,
     origin = np.asarray(center, dtype=float)
     if origin.shape != (2,) or not np.isfinite(origin).all():
         raise ValueError("center must contain two finite coordinates")
-    if (not np.isfinite([farfield_radius, rotation_degrees, grading]).all()
-            or farfield_radius <= chord/2 or grading <= 0):
-        raise ValueError("require finite farfield_radius > chord/2, finite rotation and grading > 0")
+    if (not np.isfinite([farfield_radius, rotation_degrees, grading, angular_bias]).all()
+            or farfield_radius <= chord/2 or grading <= 0 or not 0 < angular_bias <= 1):
+        raise ValueError("require finite farfield_radius > chord/2, finite rotation, grading > 0 and 0 < angular_bias <= 1")
     theta = 2*np.pi*np.arange(ntheta)/ntheta
-    directions = np.column_stack((np.cos(theta), np.sin(theta)))
+    directions = np.column_stack((np.cos(theta), angular_bias*np.sin(theta)))
+    if angular_bias != 1.:
+        directions /= np.linalg.norm(directions, axis=1)[:, None]
     directions[::ntheta//4] = [[1., 0.], [0., 1.], [-1., 0.], [0., -1.]]
     lo, hi = np.zeros(ntheta), np.full(ntheta, .5)
     for _ in range(60):

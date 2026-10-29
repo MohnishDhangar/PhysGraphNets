@@ -57,6 +57,10 @@ def _expressions(name, domain, ufl):
         k = 1+x+y
         z = x if name == 'mixed_sine_right' else 1-x
         exact = 1+x+2*y+ufl.sin(np.pi*z/2)*ufl.sin(np.pi*y)
+    elif name in ('parametric_square_dirichlet', 'parametric_square_right_neumann'):
+        # Deliberately spell out the manufactured fixture independently of NumPy.
+        k, c = 1+.4*x+.2*y, .5
+        exact = 1+.5*x-.25*y+(.7*ufl.sin(np.pi*x)-.3*ufl.sin(2*np.pi*x))*ufl.sin(np.pi*y)
     elif name.startswith('annulus_'):
         c = 0.
         exact = 1+ufl.ln(ufl.sqrt(x*x+y*y)/.5)/np.log(2.)
@@ -99,7 +103,7 @@ def compare(case: ComparisonCase, *, quadrature_degree: int = 12,
     original_edges = geometry_map[facet_geometry]
     if case.dirichlet_tags is None:
         midpoints = source.nodes[original_edges].mean(axis=1)
-        if case.name in ('mixed_polynomial', 'mixed_sine_right', 'mixed_sine_left'):
+        if case.name in ('mixed_polynomial', 'mixed_sine_right', 'mixed_sine_left', 'parametric_square_right_neumann'):
             neumann_x = 0. if case.name == 'mixed_sine_left' else 1.
             selected = ~np.isclose(midpoints[:, 0], neumann_x)
         else:

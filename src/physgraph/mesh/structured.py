@@ -29,3 +29,20 @@ def unit_square_mesh(nx: int, ny: int | None = None) -> Mesh2D:
             triangles.extend(((ll, lr, ur), (ll, ur, ul)))
     return Mesh2D(nodes=nodes, triangles=np.asarray(triangles, dtype=np.int64),
                   boundary=boundary)
+
+
+def tagged_unit_square_mesh(nx: int, ny: int | None = None) -> Mesh2D:
+    """The same square triangulation with every side explicitly tagged."""
+    mesh = unit_square_mesh(nx, ny)
+    stride = (nx + 1)
+    ny = nx if ny is None else ny
+    bottom = np.arange(nx)
+    right = np.arange(ny)*stride + nx
+    top = ny*stride + np.arange(nx, 0, -1)
+    left = np.arange(ny, 0, -1)*stride
+    edges = np.vstack((np.column_stack((bottom, bottom+1)),
+                       np.column_stack((right, right+stride)),
+                       np.column_stack((top, top-1)),
+                       np.column_stack((left, left-stride))))
+    tags = np.array(['bottom']*nx + ['right']*ny + ['top']*nx + ['left']*ny)
+    return Mesh2D(mesh.nodes, mesh.triangles, mesh.boundary, edges, tags)

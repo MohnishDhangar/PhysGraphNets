@@ -50,10 +50,41 @@ boundary, exact, fem_solution and pinn_prediction under distinct keys. It is
 not a `FieldResult` archive. `fem_reference.npz` continues to use the existing
 field schema and always contains the CPU FEM solution. Neural L2/H1 metrics
 refer to direct network/gradient evaluation at quadrature points, not nodal
-interpolation. Checkpoint schema 1 is also distinct and contains parameter,
+interpolation. Checkpoint schema 2 is also distinct and contains parameter,
 optimizer, collocation, RNG and training configuration state; see `pinn.md`.
+It also checks training-source compatibility and case-domain membership.
+Annulus comparison archives include domain metadata and boundary edge/tag arrays;
+their primary neural errors integrate on the true circles, with separately
+prefixed polygon-domain errors for FEM comparisons.
+
+Schema-1 `fem_graph_sample` archives are separate from field and PINN archives.
+They contain directed mesh topology, geometric features, independently specified
+physical inputs and a distinct `fem_solution` target. Canonical instance identity
+excludes mesh resolution; all resolutions share one split. See `graph_data.md`
+for array meanings, outward-normal conventions, identity and split limitations.
+
+Graph dataset manifests now use `config.dataset_schema_version: 2` with required
+archive SHA256 checksums; this does not change the schema-1 sample arrays. The
+strict training loader rejects legacy manifests with instructions to regenerate
+from their config into a new directory. `graph_feature_normalization` schema 1
+records feature columns, training instance IDs, fitted resolutions and input
+archive/dataset checksums. Batches keep normalized inputs separate from raw FEM
+targets and raw prescribed values. See `graph_data.md` and `gnn_protocol.md`.
 
 Independent comparison NPZ files use `physgraph_fem`, `fenicsx_fem` and `exact`
 on shared nodes/triangles. Their accompanying manifests identify cases, external
 versions and parity results. A blocked comparison produces no external solution
 arrays; see `fenicsx.md`.
+
+Schema-1 `transient_navier_stokes` archives are a separate artifact, not scalar
+field archives or supervised graph samples. They contain `nodes` (Np,2),
+`triangles` (T,3), complete boundary edges/tags, `velocity_nodes` (Nv,2),
+`velocity_cells` (T,6), `times` (S+1), `velocity` (S+1,Nv,2), `pressure_times` (S),
+`pressure` (S,Np) and `velocity_reactions` (S,Nv,2). All numerical fields use
+CPU float64. Velocity index zero is the constrained initial projection;
+`pressure_times == times[1:]`. There is no physical pressure at the initial time,
+and the projection multiplier must not be used as a pressure label. Metadata
+identifies the method, viscosity, Dirichlet partition and experiment parameters.
+The manifest records pressure-gauge policy and per-step residual/flux/load checks.
+These pickle-free artifacts are not yet a restart format or a qualified transient
+learning dataset. See [the transient formulation and scope](navier_stokes.md).

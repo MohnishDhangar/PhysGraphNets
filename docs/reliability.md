@@ -100,9 +100,10 @@ for final assessment after selecting configurations.
    grids and finer separation of optimizer setup/update costs remain open.
 4. Square mixed-boundary PINNs with manufactured flux cases are now implemented;
    see [formulation and scope](mixed_pinn.md).
-5. Generalize domain sampling, callable coefficient gradients and boundary liftings;
-   then validate irregular-domain PINNs.
-6. Define PDE-instance datasets, whole-instance splits and graph invariants.
+5. Domain sampling, callable coefficient gradients, constraint interfaces and a
+   Dirichlet annulus PINN are implemented; additional irregular cases remain open.
+6. Initial annulus PDE-instance datasets, whole-instance splits and graph invariants
+   are implemented. Loading/batching and richer dataset families remain open.
 7. Build and validate the supervised GNN baseline.
 8. Execute cloud experiments, implement the viewer, and profile before GPU/kernel work.
 

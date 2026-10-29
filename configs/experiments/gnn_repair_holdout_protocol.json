@@ -1,0 +1,56 @@
+{
+  "parameter_seed": 20261029,
+  "selection": "first eight hash-test proposals per boundary mode; parameter-only selection before solving",
+  "old_test_ids_excluded": [
+    "b7d1b1d21f14ba2113d351193182f0e045be46fd9c344f7c851958fed9b77f08",
+    "962481b8aa280e38e3036cf249b7746ba86d32a7b526994213e17e76f066c7d5",
+    "92245358eb849601b7a549a8749552d6a0e6643070d9adfcc2b32e2d8a853b98",
+    "e75435c420c37463d16a1896af3b140f5e075b19a012d81e2173ef5ef9526ab2",
+    "14add2425485109293ff2bc2c655b92b50fc894500afb56898dd1d7f93791cba",
+    "60ebe763bfd8ef3fb456ff96dc7f734291ea5e778e93d61d28e17ce3bdb66db9"
+  ],
+  "new_test_ids": [
+    "41e4e911f2a3a02d66f6aba8d64170682fc7dea28c738ddb0abec1d6bc2108b0",
+    "47d98d6191b70a276cc192c3e9981f453bdb0807beac77125a03839716d61e8e",
+    "65ad44ac884a2ffcd790a3d905d707cfed2d7fcd0c666536a76905b91e0af38c",
+    "c9df176ee5fb255750f0f1af5bffa1b2f43cdd3378465169071418739172b153",
+    "41d7014463c016881e5bcecc0f24a3f571405878879add43f594c23ca7482fa1",
+    "ad47562c79831e92e10fa763decc8508d6b6f91dba42d4b7485f144142f466ce",
+    "a3dbcfee02c09d6f357b5f60b450407d76d448d1aa7e396cef60d0304cb7ab4c",
+    "77f32d1412d29bc8cf7da09c532e7d553b89f02fece24e8351a7970fe9a46879",
+    "0b872b197db1dfb632d8f39ff6bcd50d94d6bd0926d661152dfb60cf582b2a53",
+    "72478f6c94b520d8292d2c1bb84c6f6d94f8c6046144edb1aa682ca72a0c4054",
+    "e7c763580808ba8b8395bc993ea78d4dfaa04980631b51a9d93f1b5a5830d420",
+    "f93a3afa1a7cda93f3e163b1b4cb68604c33a1898a2c4463ae6df7d9d6a55a2d",
+    "8a878a3c77b8bd8f2636bfdb350c824ab7453419a36d2c414374e7e59857b4ad",
+    "2f6500643b8783ccd84603a47955b843ec0ccca6ac9abfdd20c14f7f75e41cea",
+    "6648de58950634a35156ebb323f8c32f338441fd9ba8c13f649c83d835c3f5b3",
+    "9e42474e06ec05a0dfcc16ab30439eb63cee971f57308d2c08519e7a2e381916"
+  ],
+  "training_instances": 49,
+  "validation_instances": 9,
+  "test_instances": 16,
+  "training_resolution": 8,
+  "validation_selection_resolution": 8,
+  "final_test_resolutions": [
+    8,
+    24
+  ],
+  "criteria": {
+    "relative_fem_l2": {
+      "mean": 0.05,
+      "max": 0.1
+    },
+    "relative_fem_h1_seminorm": {
+      "mean": 0.2,
+      "max": 0.4
+    },
+    "relative_equation_residual": {
+      "mean": 0.1
+    },
+    "max_dirichlet_error": {
+      "max": 1e-12
+    }
+  },
+  "test_inspection": "only after architecture and training configuration frozen on original validation ablations"
+}

@@ -1,0 +1,15 @@
+{
+  "minimum_instances": {
+    "train": 8,
+    "validation": 3,
+    "test": 3
+  },
+  "max_relative_residual": 1e-10,
+  "max_relative_l2": 0.05,
+  "max_relative_h1": 0.35,
+  "max_quadrature_residual": 1e-07,
+  "train_resolutions": [
+    8
+  ],
+  "batch_size": 4
+}

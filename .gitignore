@@ -5,10 +5,13 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
+build/
+dist/
 .pytest_cache/
 .ruff_cache/
 .ipynb_checkpoints/
 .DS_Store
+/CFD-viewer-demo-videos/
 outputs/*
 !outputs/.gitkeep
 !outputs/README.md

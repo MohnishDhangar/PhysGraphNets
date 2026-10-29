@@ -1,5 +1,8 @@
 # Research milestones (gated, not calendar deadlines)
 
+The maintained [development checklist](checklist.md) separates local development
+from optional environment recreation and hosted execution checks.
+
 October 28 reliability work adds CPU environment snapshots, a CI matrix,
 checkpoint source compatibility, configurable evaluation and a multi-seed PINN
 study runner. See [implementation and remaining gates](reliability.md).
@@ -55,16 +58,27 @@ backend uses CPU float64 autograd through the full constrained field and native
 Adam, with derivative parity checks and deterministic NPZ resume. NumPy remains
 the default and needs no new dependencies. See `pinn.md`. Multi-seed studies and
 left/right mixed-boundary square cases are implemented; see `reliability.md` and
-`mixed_pinn.md`. Irregular neural domains and broader acceptance remain open.
+`mixed_pinn.md`. A Dirichlet annulus PINN now has domain-aware sampling, hard
+circle constraints and distinct true-domain/polygon error metrics; see
+`annulus_pinn.md`. Other irregular geometries and broader acceptance remain open.
 
 The PyTorch increment passed full regression and four manufactured training
 runs; [27 October validation evidence](validation_20261027.md) records scope,
 errors and reproducibility checks.
 
-## Phase 3 — graph network [NOT IMPLEMENTED]
-GraphData builder from Mesh2D; supervised encoder–processor–decoder GNN;
-physics-based residual and energy losses. Train on **multiple PDE instances**,
-not one forcing field; hold out full instances and mesh resolutions.
+## Phase 3 — graph network [CPU MODEL/TRAINER IMPLEMENTED; SCOPED SQUARE REPAIR QUALIFIED]
+Directed mesh graph builder, physical input features, canonical PDE-instance IDs,
+whole-instance splits, checksum-validated loading, training-only normalization,
+disjoint batching, and FEM-labelled annulus/parameterized-square generation are
+implemented. Numerical label audits and P1 prediction metrics are available.
+See `graph_data.md`, `gnn_protocol.md` and `validation_pre_gnn.md`.
+The supervised encoder–processor–decoder and deterministic epoch resume are implemented.
+The first three-seed qualification failed the declared L2/H1/residual gates; see
+`validation_gnn_flow_20261029.md`. A global square model with derivative supervision
+subsequently passed unchanged gates on 16 fresh instances at n=8/24, all three
+seeds; see `gnn_repairs.md`. Next: cost profiling, broader boundary/geometry families
+and independently declared extrapolation tests. Train on **multiple PDE instances**,
+holding out full instances and mesh resolutions under the declared protocol.
 Acceptance: train + resume, clear accuracy baselines, independent graph checks.
 
 ## Phase 4 — experimental verification + profiling [INITIAL CPU STUDY IMPLEMENTED]
@@ -75,10 +89,15 @@ the broader work below remains open.
 PDEs, geometry shifts, mesh refinement, operator learning, measured memory
 and latency. Document bottleneck candidates before kernel design.
 
-## Phase 5 — interactive viewer [NOT IMPLEMENTED]
+## Phase 5 — interactive viewer [DEFERRED FINAL PHASE]
 Separate web application with 2D scalar fields, triangulated domains,
 colormaps, probe values, reference/prediction/error, playback for time PDEs.
 Keep Matplotlib exports throughout all phases for independent visual checking.
+The [fine-viewer plan](viewer_plan.md) now specifies smooth periodic replay,
+dense tracers/trails, dye transport, fixed-geometry flow and later fluid-surrogate
+integration, with measurable acceptance gates. User direction defers replay and
+video development until the primary numerical and model deliverables qualify. Full-car/moving-wing CFD and free-surface liquids
+require additional physics phases; they are not display-only options.
 
 ## Phase 6 — custom CUDA kernel [NOT IMPLEMENTED]
 Only after Phase 4. Begin with proven bottleneck and explicit forward/backward
@@ -87,6 +106,25 @@ PyTorch baseline on an available NVIDIA GPU. Report device + environment.
 
 ## Reserved module placeholders
 
-`src/physgraph/graph/`, `cuda/`, and `viewer/` remain placeholders.
+`src/physgraph/cuda/` and `viewer/` remain placeholders.
+`graph/` and `datasets/` contain the initial graph-data foundations.
 `profiling/` contains isolated CPU cost-study workers.
 `models/`, `losses/`, and `training/` now contain the initial CPU PINN baseline.
+
+## Fluid/particle direction — manufactured transient flow and stationary obstacles qualified
+
+Boundary-aware fluid physics and passive particle transport are the active
+priority; viewer work is deferred to final integration. The periodic incompressible reference, manufactured vortex/shear
+checks, tracer convergence and time-indexed GIF export are implemented.
+A CPU P2/P1 Stokes solver now passes manufactured square refinement and independent
+FEniCSx comparisons; see [formulation and scope](stokes.md). The [mixed-boundary increment](stokes_mixed.md) adds physical traction, absolute
+pressure, channel fluxes and independently integrated loads. The [obstacle
+increment](obstacle_stokes.md) qualifies initial no-slip cylinder/airfoil fixtures,
+including confined-cylinder analytical drag and independent reaction loads.
+The [transient increment](navier_stokes.md) adds fully implicit advection,
+BE/BDF2, constrained initialization, manufactured refinement, independent
+trajectories and closed-wall energy checks. Next are a precisely specified
+transient cylinder benchmark, expanded obstacle/domain studies, triangular
+particle sampling and transient learned models. Arbitrary-mesh import and
+fluid GNN qualification remain open.
+See `fluid_particles.md` for equations and scope.

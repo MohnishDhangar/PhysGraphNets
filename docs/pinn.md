@@ -15,8 +15,8 @@ trained across instances. Supported cases are `sine`, `affine`, `variable_sine`,
 and `affine_diffusion`, with the existing analytical forcing and references.
 Two mixed-boundary square cases are also available: `mixed_sine_right` and
 `mixed_sine_left`. They add a prescribed outward flux on one vertical edge.
-See [mixed formulation and validation scope](mixed_pinn.md). Irregular-domain
-PINN training remains open.
+See [mixed formulation and validation scope](mixed_pinn.md). A first curved-domain
+case, `annulus_log`, is documented in [annulus PINN](annulus_pinn.md).
 
 For -div(k grad(u))+c*u=f, the pointwise residual is
 

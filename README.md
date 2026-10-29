@@ -1,10 +1,26 @@
 # PhysGraph — CPU FEM reference and initial PINN baseline
 
-Latest increment: [reproducibility and controlled PINN studies](docs/reliability.md),
-with [28 October validation results](docs/validation_20261028.md).
+Latest increment: [transient incompressible Navier–Stokes](docs/navier_stokes.md)
+with fully implicit advection, BE/BDF2 stepping, divergence-free initialization
+and independent FEniCSx trajectories. Manufactured temporal/spatial refinement
+extends the [stationary obstacle reference](docs/obstacle_stokes.md).
+See [executed validation](docs/validation_navier_stokes_20261030.md).
+Primary fluid physics and model qualification take priority; viewer and final
+video development are deferred.
+
+Current development: [annulus PINNs](docs/annulus_pinn.md) and
+[validated FEM-labelled graph data and preprocessing](docs/graph_data.md).
+The [pre-GNN protocol](docs/gnn_protocol.md) reserves independent instances and
+finer meshes before training. Track completed and remaining
+work in the [development checklist](docs/checklist.md).
 
 This is a **working numerical foundation with an initial CPU PINN baseline**.
-Graph models remain future work. It solves
+A CPU GNN baseline is implemented. Its first qualification failed; a
+[global square-model repair](docs/gnn_repairs.md) passed unchanged gates for three
+seeds on fresh held-out instances at n=8/24. A [periodic fluid/particle reference](docs/fluid_particles.md)
+now exports validated trajectory animations; a [fine-viewer plan](docs/viewer_plan.md)
+preserves deferred final-phase playback and rendering milestones, informed by a
+[local video and repository review](docs/viewer_reference_review.md). The FEM reference solves
 Poisson and scalar variable-coefficient diffusion/reaction equations with
 Dirichlet or mixed Dirichlet/Neumann boundaries using linear triangular (P1)
 finite elements. Uniform and graded unit-square meshes and six manufactured
@@ -114,8 +130,8 @@ results through saved notebook outputs or a separately managed dataset.
 ## What is intentionally not implemented yet?
 
 Gmsh imports and arbitrary-domain mesh generation, pure Neumann and Robin
-boundaries, tensor diffusion, irregular-domain PINNs, GNN training,
-time-dependent PDEs, a live viewer, GPU profiling, and custom CUDA kernels.
+boundaries, tensor diffusion, mixed/obstacle-domain PINNs beyond the Dirichlet annulus, qualified GNN generalization,
+boundary-aware transient fluid PDEs, a live viewer, GPU profiling, and custom CUDA kernels.
 Remaining milestones are documented in `docs/roadmap.md`.
 
 ## Scientific caveats
@@ -158,7 +174,7 @@ python scripts/run_airfoil.py --config configs/experiments/airfoil_local.json
 ```
 
 This milestone verifies elliptic FEM on airfoil geometry. Flow physics,
-airfoil PINN training, and graph models remain future work.
+airfoil PINN training, and airfoil graph surrogates remain future work.
 
 ## Independent comparison and initial PINN
 

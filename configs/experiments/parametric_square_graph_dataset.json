@@ -1,0 +1,906 @@
+{
+  "family": "parametric_square",
+  "instances": [
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": -0.4,
+        "slope_y": 0.3,
+        "amplitude_1": 0.25,
+        "amplitude_2": -0.3,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.05,
+        "reaction": 0.0,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": -0.2,
+        "slope_y": 0.3,
+        "amplitude_1": 0.35,
+        "amplitude_2": -0.3,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.05,
+        "reaction": 0.0,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.0,
+        "slope_y": 0.3,
+        "amplitude_1": 0.45,
+        "amplitude_2": -0.2,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.05,
+        "reaction": 0.2,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.2,
+        "slope_y": 0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": -0.2,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.05,
+        "reaction": 0.2,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": 0.4,
+        "slope_y": 0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": -0.1,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.05,
+        "reaction": 0.4,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": -0.4,
+        "slope_y": 0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": -0.1,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.15,
+        "reaction": 0.4,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": -0.2,
+        "slope_y": 0.0,
+        "amplitude_1": 0.25,
+        "amplitude_2": 0.0,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.15,
+        "reaction": 0.6,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.0,
+        "slope_y": 0.0,
+        "amplitude_1": 0.35,
+        "amplitude_2": 0.0,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.15,
+        "reaction": 0.6,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": 0.2,
+        "slope_y": 0.0,
+        "amplitude_1": 0.45,
+        "amplitude_2": 0.1,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.15,
+        "reaction": 0.8,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": 0.4,
+        "slope_y": -0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": 0.1,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.15,
+        "reaction": 0.8,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": -0.4,
+        "slope_y": -0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": 0.2,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.25,
+        "reaction": 0.0,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": -0.2,
+        "slope_y": -0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": 0.2,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.25,
+        "reaction": 0.0,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": 0.0,
+        "slope_y": 0.3,
+        "amplitude_1": 0.25,
+        "amplitude_2": 0.3,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.25,
+        "reaction": 0.2,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": 0.2,
+        "slope_y": 0.3,
+        "amplitude_1": 0.35,
+        "amplitude_2": 0.3,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.25,
+        "reaction": 0.2,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.4,
+        "slope_y": 0.3,
+        "amplitude_1": 0.45,
+        "amplitude_2": -0.3,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.25,
+        "reaction": 0.4,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": -0.4,
+        "slope_y": 0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": -0.3,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.35,
+        "reaction": 0.4,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": -0.2,
+        "slope_y": 0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": -0.2,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.35,
+        "reaction": 0.6,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": 0.0,
+        "slope_y": 0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": -0.2,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.35,
+        "reaction": 0.6,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.2,
+        "slope_y": 0.0,
+        "amplitude_1": 0.25,
+        "amplitude_2": -0.1,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.35,
+        "reaction": 0.8,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.4,
+        "slope_y": 0.0,
+        "amplitude_1": 0.35,
+        "amplitude_2": -0.1,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.35,
+        "reaction": 0.8,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": -0.4,
+        "slope_y": 0.0,
+        "amplitude_1": 0.45,
+        "amplitude_2": 0.0,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.05,
+        "reaction": 0.0,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": -0.2,
+        "slope_y": -0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": 0.0,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.05,
+        "reaction": 0.0,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.0,
+        "slope_y": -0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": 0.1,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.05,
+        "reaction": 0.2,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.2,
+        "slope_y": -0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": 0.1,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.05,
+        "reaction": 0.2,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": 0.4,
+        "slope_y": 0.3,
+        "amplitude_1": 0.25,
+        "amplitude_2": 0.2,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.05,
+        "reaction": 0.4,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": -0.4,
+        "slope_y": 0.3,
+        "amplitude_1": 0.35,
+        "amplitude_2": 0.2,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.15,
+        "reaction": 0.4,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": -0.2,
+        "slope_y": 0.3,
+        "amplitude_1": 0.45,
+        "amplitude_2": 0.3,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.15,
+        "reaction": 0.6,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.0,
+        "slope_y": 0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": 0.3,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.15,
+        "reaction": 0.6,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": 0.2,
+        "slope_y": 0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": -0.3,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.15,
+        "reaction": 0.8,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": 0.4,
+        "slope_y": 0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": -0.3,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.15,
+        "reaction": 0.8,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": -0.4,
+        "slope_y": 0.0,
+        "amplitude_1": 0.25,
+        "amplitude_2": -0.2,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.25,
+        "reaction": 0.0,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": -0.2,
+        "slope_y": 0.0,
+        "amplitude_1": 0.35,
+        "amplitude_2": -0.2,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.25,
+        "reaction": 0.0,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": 0.0,
+        "slope_y": 0.0,
+        "amplitude_1": 0.45,
+        "amplitude_2": -0.1,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.25,
+        "reaction": 0.2,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": 0.2,
+        "slope_y": -0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": -0.1,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.25,
+        "reaction": 0.2,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.4,
+        "slope_y": -0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": 0.0,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.25,
+        "reaction": 0.4,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": -0.4,
+        "slope_y": -0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": 0.0,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.35,
+        "reaction": 0.4,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": -0.2,
+        "slope_y": 0.3,
+        "amplitude_1": 0.25,
+        "amplitude_2": 0.1,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.35,
+        "reaction": 0.6,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": 0.0,
+        "slope_y": 0.3,
+        "amplitude_1": 0.35,
+        "amplitude_2": 0.1,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.35,
+        "reaction": 0.6,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.2,
+        "slope_y": 0.3,
+        "amplitude_1": 0.45,
+        "amplitude_2": 0.2,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.35,
+        "reaction": 0.8,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.4,
+        "slope_y": 0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": 0.2,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.35,
+        "reaction": 0.8,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": -0.4,
+        "slope_y": 0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": 0.3,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.05,
+        "reaction": 0.0,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": -0.2,
+        "slope_y": 0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": 0.3,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.05,
+        "reaction": 0.0,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.0,
+        "slope_y": 0.0,
+        "amplitude_1": 0.25,
+        "amplitude_2": -0.3,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.05,
+        "reaction": 0.2,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.2,
+        "slope_y": 0.0,
+        "amplitude_1": 0.35,
+        "amplitude_2": -0.3,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.05,
+        "reaction": 0.2,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": 0.4,
+        "slope_y": 0.0,
+        "amplitude_1": 0.45,
+        "amplitude_2": -0.2,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.05,
+        "reaction": 0.4,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": -0.4,
+        "slope_y": -0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": -0.2,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.15,
+        "reaction": 0.4,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": -0.2,
+        "slope_y": -0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": -0.1,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.15,
+        "reaction": 0.6,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.0,
+        "slope_y": -0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": -0.1,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.15,
+        "reaction": 0.6,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": 0.2,
+        "slope_y": 0.3,
+        "amplitude_1": 0.25,
+        "amplitude_2": 0.0,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.15,
+        "reaction": 0.8,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": 0.4,
+        "slope_y": 0.3,
+        "amplitude_1": 0.35,
+        "amplitude_2": 0.0,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.15,
+        "reaction": 0.8,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": -0.4,
+        "slope_y": 0.3,
+        "amplitude_1": 0.45,
+        "amplitude_2": 0.1,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.25,
+        "reaction": 0.0,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": -0.2,
+        "slope_y": 0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": 0.1,
+        "diffusion_base": 0.6,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.25,
+        "reaction": 0.0,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": 0.0,
+        "slope_y": 0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": 0.2,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.25,
+        "reaction": 0.2,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": 0.2,
+        "slope_y": 0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": 0.2,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.25,
+        "reaction": 0.2,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.4,
+        "slope_y": 0.0,
+        "amplitude_1": 0.25,
+        "amplitude_2": 0.3,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.25,
+        "reaction": 0.4,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": -0.4,
+        "slope_y": 0.0,
+        "amplitude_1": 0.35,
+        "amplitude_2": 0.3,
+        "diffusion_base": 0.8,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.35,
+        "reaction": 0.4,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": -0.2,
+        "slope_y": 0.0,
+        "amplitude_1": 0.45,
+        "amplitude_2": -0.3,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.35,
+        "reaction": 0.6,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": 0.0,
+        "slope_y": -0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": -0.3,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.35,
+        "reaction": 0.6,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.2,
+        "slope_y": -0.15,
+        "amplitude_1": 0.65,
+        "amplitude_2": -0.2,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.35,
+        "reaction": 0.8,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.4,
+        "slope_y": -0.15,
+        "amplitude_1": 0.75,
+        "amplitude_2": -0.2,
+        "diffusion_base": 1.0,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.35,
+        "reaction": 0.8,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.8,
+        "slope_x": -0.4,
+        "slope_y": 0.3,
+        "amplitude_1": 0.25,
+        "amplitude_2": -0.1,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.1,
+        "diffusion_y": 0.05,
+        "reaction": 0.0,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 0.95,
+        "slope_x": -0.2,
+        "slope_y": 0.3,
+        "amplitude_1": 0.35,
+        "amplitude_2": -0.1,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.25,
+        "diffusion_y": 0.05,
+        "reaction": 0.0,
+        "boundary_mode": "right_neumann"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.1,
+        "slope_x": 0.0,
+        "slope_y": 0.3,
+        "amplitude_1": 0.45,
+        "amplitude_2": 0.0,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.4,
+        "diffusion_y": 0.05,
+        "reaction": 0.2,
+        "boundary_mode": "dirichlet"
+      }
+    },
+    {
+      "physics": {
+        "offset": 1.25,
+        "slope_x": 0.2,
+        "slope_y": 0.15,
+        "amplitude_1": 0.55,
+        "amplitude_2": 0.0,
+        "diffusion_base": 1.2,
+        "diffusion_x": 0.55,
+        "diffusion_y": 0.05,
+        "reaction": 0.2,
+        "boundary_mode": "right_neumann"
+      }
+    }
+  ],
+  "resolutions": [
+    8,
+    16
+  ],
+  "split_seed": 0
+}

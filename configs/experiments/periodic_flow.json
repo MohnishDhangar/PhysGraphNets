@@ -1,0 +1,1 @@
+{"case":"taylor_green","resolution":32,"viscosity":0.05,"dt":0.01,"steps":200,"save_every":5,"particles":100,"seed":7,"animation":true}

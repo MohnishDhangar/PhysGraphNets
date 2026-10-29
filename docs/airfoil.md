@@ -50,6 +50,12 @@ and must be divisible by four, retaining exact axis-aligned endpoints before
 rotation. Grading uses layer fraction (i/nr)^grading. Positive signed areas are
 checked after scaling and translation, rejecting numerical collapse.
 
+The mesh API also accepts `angular_bias` in (0,1]. Its default 1 preserves
+uniform rays. Smaller values normalize (cos(theta), angular_bias*sin(theta))
+to concentrate rays near the leading and trailing endpoints. The [obstacle
+Stokes study](obstacle_stokes.md) uses 0.2 and reports per-tag edge lengths;
+the scalar CLI and existing scalar fixtures retain their original meshes.
+
 Boundary tags are `airfoil_upper`, `airfoil_lower`, and `farfield`. Surface tags
 remain attached to the body after rotation. Inner edges run clockwise, so the
 outward domain normal points into the airfoil; far-field edges run CCW.
@@ -156,7 +162,9 @@ Kaggle/Colab execution remains open. See [validation](validation_20261026.md).
 The user subsequently authorized starting Phase 2B alongside the external gate:
 a square-domain CPU PINN is now available in `pinn.md`, and the external
 comparison adapter is described in `fenicsx.md`. General mesh import, broader
-airfoil families, flow physics, and airfoil PINN training remain future work.
+airfoil families and airfoil PINN training remain future work. Initial stationary
+no-slip flow is now separately qualified in [obstacle Stokes](obstacle_stokes.md);
+transient and inertial airfoil flow remain open.
 
 ## Recorded local validation
 

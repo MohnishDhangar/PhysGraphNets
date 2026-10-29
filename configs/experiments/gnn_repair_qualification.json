@@ -1,0 +1,35 @@
+{
+  "dataset": "outputs/gnn_repairs_20261029/fresh_dataset/dataset_manifest.json",
+  "normalization": "outputs/gnn_repairs_20261029/fresh_normalization.json",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "epochs": 800,
+  "width": 32,
+  "depth": 3,
+  "batch_size": 7,
+  "learning_rate": 0.001,
+  "architecture": "global_square",
+  "objective": "sobolev",
+  "h1_weight": 1.0,
+  "decay_every": 100,
+  "decay_factor": 0.5,
+  "criteria": {
+    "relative_fem_l2": {
+      "mean": 0.05,
+      "max": 0.1
+    },
+    "relative_fem_h1_seminorm": {
+      "mean": 0.2,
+      "max": 0.4
+    },
+    "relative_equation_residual": {
+      "mean": 0.1
+    },
+    "max_dirichlet_error": {
+      "max": 1e-12
+    }
+  }
+}
