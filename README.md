@@ -5,6 +5,9 @@ with fully implicit advection, BE/BDF2 stepping, divergence-free initialization
 and independent FEniCSx trajectories. Manufactured temporal/spatial refinement
 extends the [stationary obstacle reference](docs/obstacle_stokes.md).
 See [executed validation](docs/validation_navier_stokes_20261030.md).
+The [DFG 2D-3 transient cylinder benchmark](docs/cylinder_flow.md) now has a
+dedicated implementation and mesh/timestep qualification runner; scientific
+qualification remains pending and coarse benchmark failures are preserved.
 Primary fluid physics and model qualification take priority; viewer and final
 video development are deferred.
 
@@ -131,7 +134,7 @@ results through saved notebook outputs or a separately managed dataset.
 
 Gmsh imports and arbitrary-domain mesh generation, pure Neumann and Robin
 boundaries, tensor diffusion, mixed/obstacle-domain PINNs beyond the Dirichlet annulus, qualified GNN generalization,
-boundary-aware transient fluid PDEs, a live viewer, GPU profiling, and custom CUDA kernels.
+qualified transient obstacle wakes, a live viewer, GPU profiling, and custom CUDA kernels.
 Remaining milestones are documented in `docs/roadmap.md`.
 
 ## Scientific caveats
@@ -212,3 +215,19 @@ Subsequent capabilities include [mixed-boundary square PINNs](docs/mixed_pinn.md
 with independent FEniCSx checks and [repeated CPU accuracy-versus-cost studies](docs/cost_study.md).
 The latest numerical suite passed **206 tests** with one expected skip.
 See [mixed-boundary and cost-study results](docs/validation_mixed_cost_20261028.md).
+
+## Flow acceleration
+
+Cylinder runs support an optional PETSc/MUMPS CPU backend through
+`--linear-backend mumps`; SciPy remains the default. On this machine, a repeated
+six-step level-16 comparison measured 1.70x faster local solution and 1.61x faster
+total process time, with field/load parity checks passing. This is a bounded
+startup benchmark, not a full qualification timing. An experimental hybrid GPU
+GMRES flow backend also passed startup/wake accuracy checks, but was about twice
+as slow as MUMPS in complete-process timings and was rejected for adoption.
+See the [complete GPU solver trial](docs/gpu_solver_trial.md) for results and scope.
+The [persistent GPU development report](docs/gpu_persistent_solver.md) covers
+factor/workspace reuse, the matching CPU control, and vendor GPU refactorization.
+The repeated AC-powered reuse candidate remains slower than MUMPS; full
+qualification is gated on demonstrated end-to-end speedup.
+See [acceleration setup, measurements and limitations](docs/acceleration_assessment.md).

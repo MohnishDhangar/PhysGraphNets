@@ -104,9 +104,14 @@ heat/diffusion presentation, is on hold as a final integration step.
 - [x] Independently compare initial projections and complete manufactured trajectories, including physical traction, absolute pressure and inertial force balance.
 - [x] Verify closed-wall decay and discrete BE/BDF2 energy identities, retaining advective power from weak incompressibility.
 - [ ] Extend to transient flow around obstacles with validated wall/inflow/outflow treatment.
+  Dedicated [DFG 2D-3 cylinder implementation and qualification runner](cylinder_flow.md)
+  are present. The complete mesh/time study failed spatial and temporal
+  refinement gates; its finest benchmark and all 1,600 independent steps passed.
+  Further resolution evidence is required.
 - [ ] Add triangle-based particle sampling and explicit boundary interaction policies.
 - [ ] Build transient vector-field datasets, models and long-rollout evaluation.
-- [ ] Add transient simulation restart/checkpoints and streaming output for longer runs.
+- [x] Add CPU transient restart/checkpoints and bounded-memory segment output, with exact resume and crash-recovery checks.
+- [ ] Integrate streaming with independent FEniCSx comparison and the cylinder study CLI; core API and manufactured CLI are implemented.
 - [ ] Formulate and validate transported dye/temperature as distinct physical fields.
 - [ ] Final phase (deferred): smooth browser playback, seam handling, dense display tracers/trails, emitters and deterministic video export.
 - [ ] Final phase (deferred): integrate fluid/particle playback into the interactive viewer; add heat/diffusion afterwards.

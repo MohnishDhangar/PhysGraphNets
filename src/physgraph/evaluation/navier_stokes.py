@@ -27,7 +27,7 @@ def closed_wall_energy(trajectory):
     Includes advective power: weakly divergence-free P2 velocity does not make
     this term identically zero. This diagnostic asserts no unconditional stability.
     """
-    ops = FlowOperators(trajectory.space, trajectory.viscosity)
+    ops = FlowOperators(trajectory.space, trajectory.viscosity, viscous_form=trajectory.viscous_form)
     vectors = [u.T.ravel() for u in trajectory.velocity]
     energy = [float(.5*u @ ops.mass @ u) for u in vectors]
     rows = []
@@ -43,7 +43,12 @@ def closed_wall_energy(trajectory):
             dissipation = float(.5*diff @ ops.mass @ diff/dt)
             modified_energy = energy[step]
         else:
-            older = vectors[step-2]
+            if step == 1:
+                if trajectory.velocity_before_segment is None:
+                    raise ValueError('BDF2 segment energy requires velocity before the segment')
+                older = trajectory.velocity_before_segment.T.ravel()
+            else:
+                older = vectors[step-2]
             a, b = 2*u-previous, 2*previous-older
             modified_energy = float(.25*(u @ ops.mass @ u+a @ ops.mass @ a))
             previous_modified = float(.25*(previous @ ops.mass @ previous+b @ ops.mass @ b))

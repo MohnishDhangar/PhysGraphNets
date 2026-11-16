@@ -124,7 +124,8 @@ including confined-cylinder analytical drag and independent reaction loads.
 The [transient increment](navier_stokes.md) adds fully implicit advection,
 BE/BDF2, constrained initialization, manufactured refinement, independent
 trajectories and closed-wall energy checks. Next are a precisely specified
-transient cylinder benchmark, expanded obstacle/domain studies, triangular
+transient cylinder benchmark (the [implementation and declared study](cylinder_flow.md)
+are now present, with scientific qualification still pending), expanded obstacle/domain studies, triangular
 particle sampling and transient learned models. Arbitrary-mesh import and
 fluid GNN qualification remain open.
 See `fluid_particles.md` for equations and scope.

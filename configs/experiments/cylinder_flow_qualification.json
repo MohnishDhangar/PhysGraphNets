@@ -1,0 +1,11 @@
+{
+  "levels": [4, 8, 16],
+  "time_steps": [0.02, 0.01, 0.005],
+  "external": true,
+  "refinement_criteria": {
+    "summary": 0.03,
+    "peak_times": 0.05,
+    "history_rms": 0.05
+  },
+  "surface_reaction_tolerance": 0.05
+}

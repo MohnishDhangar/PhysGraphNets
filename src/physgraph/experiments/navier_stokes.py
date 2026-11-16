@@ -26,10 +26,14 @@ def save_trajectory(path, trajectory, metadata):
         velocity_nodes=trajectory.space.points, velocity_cells=trajectory.space.cells,
         times=trajectory.times, velocity=trajectory.velocity, pressure_times=trajectory.times[1:],
         pressure=trajectory.pressure, velocity_reactions=trajectory.reactions,
+        velocity_before_segment=(np.empty((0, 2)) if trajectory.velocity_before_segment is None
+                                 else trajectory.velocity_before_segment),
         metadata=np.array(json.dumps({'schema_version': 1, 'artifact': 'transient_navier_stokes',
             'viscosity': trajectory.viscosity, 'scheme': trajectory.scheme,
+            'viscous_form': trajectory.viscous_form,
             'dirichlet_tags': trajectory.dirichlet_tags,
-            'initial_pressure': 'absent; projection multiplier is not physical pressure', **metadata})))
+            'segment_start_step': trajectory.diagnostics[0]['step']-1,
+            'initial_pressure': 'absent at segment start; projection multiplier is not physical pressure', **metadata})))
 
 
 def run_navier_stokes(*, output, sizes=(4, 8, 16), time_steps=(8, 16, 32), external=False):

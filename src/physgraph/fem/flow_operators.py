@@ -12,11 +12,13 @@ from physgraph.fem.stokes_boundary import facet_barycentric
 
 
 class FlowOperators:
-    def __init__(self, space, viscosity, quadrature_order=9):
+    def __init__(self, space, viscosity, quadrature_order=9, viscous_form='symmetric_gradient'):
         if not np.isfinite(viscosity) or viscosity <= 0:
             raise ValueError('viscosity must be finite and positive')
         if type(quadrature_order) is not int or quadrature_order < 4:
             raise ValueError('flow quadrature order must be an integer >= 4')
+        if viscous_form not in ('symmetric_gradient', 'laplacian'):
+            raise ValueError('unknown viscous form')
         self.space, self.viscosity = space, viscosity
         self.quadrature_order = quadrature_order
         mesh, cells = space.mesh, space.cells
@@ -27,6 +29,7 @@ class FlowOperators:
         self.basis = p2_basis(bary, geometry[0][1])[0]
         self.grad = np.array([p2_basis(bary, g[1])[1] for g in geometry])
         self.weights = areas[:, None]*weights
+        self.weighted_basis_transpose = (self.weights[:, :, None]*self.basis[None, :, :]).transpose(0, 2, 1)
         self.points = np.einsum('qi,tic->tqc', bary, mesh.nodes[mesh.triangles])
         self.rows = np.repeat(cells, 6, axis=1).ravel()
         self.cols = np.tile(cells, (1, 6)).ravel()
@@ -38,6 +41,8 @@ class FlowOperators:
             'tq,tqi,tqj->tij', self.weights, self.grad[:, :, :, j], self.grad[:, :, :, i]))
             for j in range(2)] for i in range(2)]
         self.viscous = bmat(blocks, format='csr')
+        if viscous_form == 'laplacian':
+            self.viscous = block_diag((self.matrix(base), self.matrix(base)), format='csr')
         br = np.repeat(mesh.triangles, 6, axis=1).ravel()
         bc = np.tile(cells, (1, 3)).ravel()
         divergence = []
@@ -82,16 +87,17 @@ class FlowOperators:
 
     def convection(self, velocity, *, jacobian=False):
         local = velocity.reshape(2, self.nv).T[self.space.cells]
-        u = np.einsum('qi,tic->tqc', self.basis, local)
+        u = self.basis @ local
         du = np.einsum('tqid,tic->tqcd', self.grad, local)
         adv = np.einsum('tqcd,tqd->tqc', du, u)
-        value = self.scatter(np.einsum('tq,qi,tqc->tic', self.weights, self.basis, adv))
+        value = self.scatter(self.weighted_basis_transpose @ adv)
         if not jacobian:
             return value
         # D[(u.grad)u] du = (u.grad)du + (du.grad)u; retain both terms.
-        transport = np.einsum('tq,qi,tqd,tqjd->tij', self.weights, self.basis, u, self.grad)
-        blocks = [[self.matrix((transport if i == j else 0.) + np.einsum(
-            'tq,qi,qj,tq->tij', self.weights, self.basis, self.basis, du[:, :, i, j]))
+        directional_basis = np.einsum('tqd,tqjd->tqj', u, self.grad)
+        transport = self.weighted_basis_transpose @ directional_basis
+        blocks = [[self.matrix((transport if i == j else 0.) + self.weighted_basis_transpose @
+            (self.basis[None, :, :]*du[:, :, i, j, None]))
             for j in range(2)] for i in range(2)]
         return value, bmat(blocks, format='csr')
 

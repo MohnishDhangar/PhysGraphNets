@@ -13,6 +13,18 @@ from physgraph.fem.navier_stokes import solve_navier_stokes
 from physgraph.evaluation.stokes import stokes_errors, stokes_boundary_integrals
 
 
+def test_progress_observer_preserves_numerical_trajectory():
+    case = NavierStokesCase('accelerating_shear', time_profile='linear')
+    events = []
+    baseline = run(case, n=2, steps=3)
+    observed = run(case, n=2, steps=3, step_callback=lambda step, time: events.append((step, time)))
+    np.testing.assert_array_equal(observed.velocity, baseline.velocity)
+    np.testing.assert_array_equal(observed.pressure, baseline.pressure)
+    assert events == [(i, float(baseline.times[i])) for i in range(1, 4)]
+    with pytest.raises(ValueError, match='step_callback'):
+        run(case, step_callback=1)
+
+
 def run(case, *, n=4, dt=.05, steps=3, scheme='bdf2', traction_tag=None, mesh=None, **kwargs):
     mesh = tagged_unit_square_mesh(n) if mesh is None else mesh
     return solve_navier_stokes(mesh, case.forcing, case.velocity, lambda x: case.velocity(x, 0.),

@@ -2,9 +2,12 @@
 import numpy as np
 from physgraph.verification.fenicsx import require_fenicsx, coordinate_permutation
 from physgraph.evaluation.stokes import stokes_boundary_integrals
+from physgraph.physics.cylinder_flow import CylinderFlowCase
 
 
 def compare_navier_stokes(trajectory, case, tolerance=1e-9):
+    if trajectory.diagnostics[0]['step'] != 1:
+        raise ValueError('independent comparison requires the complete trajectory from its original projection')
     if not np.isfinite(tolerance) or tolerance <= 0:
         raise ValueError('comparison tolerance must be positive and finite')
     if case.viscosity != trajectory.viscosity:
@@ -30,9 +33,13 @@ def compare_navier_stokes(trajectory, case, tolerance=1e-9):
     collapsed = [space.sub(i).collapse() for i in range(3)]
     time = fem.Constant(domain, PETSc.ScalarType(trajectory.times[0]))
     symbolic_time = ufl.variable(time)
-    amplitude = ufl.exp(symbolic_time) if case.time_profile == 'exponential' else 1+symbolic_time
+    cylinder = isinstance(case, CylinderFlowCase)
+    amplitude = (ufl.as_ufl(1.) if cylinder else
+                 ufl.exp(symbolic_time) if case.time_profile == 'exponential' else 1+symbolic_time)
     x, y = ufl.SpatialCoordinate(domain)
-    if case.name == 'accelerating_shear':
+    if cylinder:
+        base, base_p = ufl.as_vector((0., 0.)), ufl.as_ufl(0.)
+    elif case.name == 'accelerating_shear':
         base, base_p = ufl.as_vector((1+y*(1-y), .5)), x+y-1
     else:
         psi = 32*x*x*(1-x)**2*y*y*(1-y)**2
@@ -40,12 +47,16 @@ def compare_navier_stokes(trajectory, case, tolerance=1e-9):
         if case.name == 'translated_vortex':
             base += ufl.as_vector((1., -.5))
         base_p = x*x+y*y-2/3
-    exact, exact_p = amplitude*base, amplitude*base_p+case.pressure_offset
+    exact, exact_p = amplitude*base, amplitude*base_p+(0. if cylinder else case.pressure_offset)
 
     def stress(u, p):
-        return case.viscosity*(ufl.grad(u)+ufl.transpose(ufl.grad(u)))-p*ufl.Identity(2)
+        grad = ufl.grad(u)
+        if trajectory.viscous_form == 'symmetric_gradient':
+            grad += ufl.transpose(grad)
+        return case.viscosity*grad-p*ufl.Identity(2)
 
-    forcing = ufl.diff(exact, symbolic_time)+ufl.dot(ufl.grad(exact), exact)-ufl.div(stress(exact, exact_p))
+    forcing = (fem.Constant(domain, np.zeros(2, dtype=PETSc.ScalarType)) if cylinder else
+               ufl.diff(exact, symbolic_time)+ufl.dot(ufl.grad(exact), exact)-ufl.div(stress(exact, exact_p)))
     dx = ufl.Measure('dx', domain=domain, metadata={'quadrature_degree': 16})
     domain.topology.create_connectivity(1, 2)
     facets = dxmesh.exterior_facet_indices(domain.topology)
@@ -65,12 +76,19 @@ def compare_navier_stokes(trajectory, case, tolerance=1e-9):
     bcs, boundary_values = [], []
     for i in range(2):
         vi = collapsed[i][0]
-        g = fem.Function(vi)
-        expression = fem.Expression(exact[i], vi.element.interpolation_points, jit_options=jit)
-        g.interpolate(expression)
-        boundary_values.append((g, expression))
-        dofs = fem.locate_dofs_topological((space.sub(i), vi), 1, facets[selected])
-        bcs.append(fem.dirichletbc(g, dofs, space.sub(i)))
+        for tag in (trajectory.dirichlet_tags if cylinder else [None]):
+            g = fem.Function(vi)
+            value = exact[i]
+            active = selected.copy()
+            if cylinder:
+                active &= np.array([name == tag for name in names])
+                value = (4*case.peak_speed*ufl.sin(np.pi*time/case.duration)*y*(case.height-y)/case.height**2
+                         if i == 0 and tag == 'left' else ufl.as_ufl(0.))
+            expression = fem.Expression(value, vi.element.interpolation_points, comm=domain.comm, jit_options=jit)
+            g.interpolate(expression)
+            boundary_values.append((g, expression))
+            dofs = fem.locate_dofs_topological((space.sub(i), vi), 1, facets[active])
+            bcs.append(fem.dirichletbc(g, dofs, space.sub(i)))
     if mean_gauge:
         bcs.append(fem.dirichletbc(PETSc.ScalarType(0), np.array([collapsed[2][1][0]], dtype=np.int32), space.sub(2)))
     vx, vy, q = ufl.TestFunctions(space)
@@ -80,7 +98,8 @@ def compare_navier_stokes(trajectory, case, tolerance=1e-9):
     lu_options = {'ksp_type': 'preonly', 'pc_type': 'lu', 'pc_factor_mat_solver_type': 'mumps',
                   'ksp_error_if_not_converged': True}
     projection = LinearProblem((ufl.inner(trial, v)-p*ufl.div(v)-q*ufl.div(trial))*dx,
-        ufl.inner(exact, v)*dx, bcs=bcs, petsc_options_prefix='physgraph_ns_projection_',
+        ufl.inner(fem.Constant(domain, np.zeros(2, dtype=PETSc.ScalarType)) if cylinder else exact, v)*dx,
+        bcs=bcs, petsc_options_prefix='physgraph_ns_projection_',
         petsc_options=lu_options, jit_options=jit)
     initial = projection.solve()
     w, previous, older = fem.Function(space), fem.Function(space), fem.Function(space)
@@ -100,7 +119,7 @@ def compare_navier_stokes(trajectory, case, tolerance=1e-9):
     residual = (ufl.inner(rate+ufl.dot(ufl.grad(u), u)-forcing, v)
                 +ufl.inner(stress(u, p), ufl.grad(v))-q*ufl.div(u))*dx
     for tag in tags:
-        if trajectory.dirichlet_tags is not None and tag not in trajectory.dirichlet_tags:
+        if not cylinder and trajectory.dirichlet_tags is not None and tag not in trajectory.dirichlet_tags:
             residual -= ufl.inner(ufl.dot(stress(exact, exact_p), normal), v)*ds(tags[tag])
     problem = NonlinearProblem(residual, w, bcs=bcs, petsc_options_prefix='physgraph_ns_',
         petsc_options={**lu_options, 'snes_type': 'newtonls', 'snes_linesearch_type': 'bt',
@@ -131,6 +150,16 @@ def compare_navier_stokes(trajectory, case, tolerance=1e-9):
         dofs = fem.locate_dofs_topological(vi, 1, facets[selected])
         test.x.array[np.asarray(mapping)[dofs]] = 1.
         reaction_forms.append(fem.form(ufl.action(residual, test), jit_options=jit))
+    body_forms = []
+    if cylinder:
+        body_facets = facets[np.array([tag == 'cylinder' for tag in names])]
+        for i in range(2):
+            test = fem.Function(space)
+            vi, mapping = collapsed[i]
+            dofs = fem.locate_dofs_topological(vi, 1, body_facets)
+            test.x.array[np.asarray(mapping)[dofs]] = 1.
+            body_forms.append(fem.form(ufl.action(residual, test), jit_options=jit))
+        errors['max_obstacle_reaction_difference'] = 0.
     iterations = []
     for step, value in enumerate(trajectory.times[1:], 1):
         time.value = value
@@ -156,6 +185,12 @@ def compare_navier_stokes(trajectory, case, tolerance=1e-9):
             errors['max_boundary_load_difference'] = max(errors['max_boundary_load_difference'], float(np.max(np.abs(load-integrals[tag]['force_on_fluid']))))
         reaction = np.array([fem.assemble_scalar(form) for form in reaction_forms])
         errors['max_reaction_difference'] = max(errors['max_reaction_difference'], float(np.max(np.abs(reaction-trajectory.diagnostics[step-1]['dirichlet_reaction_on_fluid']))))
+        if cylinder:
+            from physgraph.evaluation.obstacle_stokes import obstacle_dofs
+            body = obstacle_dofs(trajectory.frame(step), ('cylinder',))
+            own = trajectory.reactions[step-1][body].sum(axis=0)
+            other = np.array([fem.assemble_scalar(form) for form in body_forms])
+            errors['max_obstacle_reaction_difference'] = max(errors['max_obstacle_reaction_difference'],float(np.max(np.abs(own-other))))
         older.x.array[:] = previous.x.array
         previous.x.array[:] = w.x.array
     return {**errors, 'passed': bool(max(errors.values()) <= tolerance), 'tolerance': tolerance,
