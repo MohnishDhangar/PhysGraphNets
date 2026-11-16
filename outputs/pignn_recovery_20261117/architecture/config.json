@@ -1,0 +1,95 @@
+{
+  "experiment": {
+    "resolution": 3,
+    "train_instances": [
+      {
+        "family": "square",
+        "physics": {
+          "offset": 1.0
+        }
+      },
+      {
+        "family": "annulus",
+        "physics": {
+          "inner_value": 1.0
+        }
+      },
+      {
+        "family": "cylinder",
+        "physics": {
+          "diffusivity": 1.0
+        }
+      }
+    ],
+    "validation_instances": [
+      {
+        "family": "square",
+        "geometry": {
+          "grading": 1.3
+        },
+        "physics": {
+          "offset": 1.1
+        }
+      },
+      {
+        "family": "annulus",
+        "physics": {
+          "inner_value": 1.1
+        }
+      },
+      {
+        "family": "cylinder",
+        "physics": {
+          "diffusivity": 1.1
+        }
+      }
+    ],
+    "training": {
+      "mode": "physics",
+      "architecture": "general_global",
+      "norm": "energy",
+      "epochs": 100,
+      "width": 16,
+      "depth": 2,
+      "learning_rate": 0.003,
+      "seed": 0
+    }
+  },
+  "variants": {
+    "original_local": {
+      "architecture": "general_local"
+    },
+    "original_global": {
+      "architecture": "general_global"
+    },
+    "local_fem": {
+      "architecture": "general_global",
+      "correction_steps": 4
+    },
+    "two_level_fem": {
+      "architecture": "general_global",
+      "correction_steps": 4,
+      "coarse_size": 8
+    }
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "validation_criteria": {
+    "relative_fem_l2": {
+      "mean": 0.05,
+      "max": 0.1
+    },
+    "relative_fem_h1": {
+      "mean": 0.2,
+      "max": 0.4
+    },
+    "max_dirichlet_error": {
+      "max": 1e-12
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "cpu_model": "AMD Ryzen 5 5600H with Radeon Graphics",
+  "logical_cpus": 12,
+  "installed_ram_bytes": 7611854848,
+  "platform": "Linux-7.2.6-arch2-1-x86_64-with-glibc2.44",
+  "device": "cpu",
+  "precision": "float64",
+  "training_threads": 1,
+  "gpu_execution": "not available in installed CPU Torch; no GPU parity or VRAM result measured",
+  "peak_memory_method": "Linux ru_maxrss process lifetime high-water RSS; sequential seed runs inherit earlier peaks",
+  "latency_method": "first and median of five cached-input forward calls in warmed process; not cold process timing"
+}

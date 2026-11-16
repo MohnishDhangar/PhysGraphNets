@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "purpose": "one-time locked evaluation after validation-only model selection; no retraining or tuning on results",
+  "resolutions": [
+    3
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "criteria": {
+    "relative_fem_l2": {
+      "mean": 0.05,
+      "max": 0.1
+    },
+    "relative_fem_h1": {
+      "mean": 0.2,
+      "max": 0.4
+    },
+    "max_dirichlet_error": {
+      "max": 1e-12
+    }
+  },
+  "cases": [
+    {
+      "name": "development_driver_smoke",
+      "category": "development_only",
+      "instance": {
+        "family": "square",
+        "physics": {
+          "offset": 1.025
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "primary": "physics",
+  "hybrid_comparator": "hybrid_balanced",
+  "study": "outputs/pignn_recovery_20261117/objectives",
+  "criteria_source": "configs/experiments/pignn_recovery_objectives.json",
+  "selection_uses": "development validation only; no locked predictions evaluated yet"
+}

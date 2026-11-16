@@ -1,0 +1,57 @@
+{
+  "resolution": 3,
+  "train_instances": [
+    {
+      "family": "square",
+      "physics": {
+        "offset": 1.0
+      }
+    },
+    {
+      "family": "annulus",
+      "physics": {
+        "inner_value": 1.0
+      }
+    },
+    {
+      "family": "cylinder",
+      "physics": {
+        "diffusivity": 1.0
+      }
+    }
+  ],
+  "validation_instances": [
+    {
+      "family": "square",
+      "geometry": {
+        "grading": 1.3
+      },
+      "physics": {
+        "offset": 1.1
+      }
+    },
+    {
+      "family": "annulus",
+      "physics": {
+        "inner_value": 1.1
+      }
+    },
+    {
+      "family": "cylinder",
+      "physics": {
+        "diffusivity": 1.1
+      }
+    }
+  ],
+  "training": {
+    "mode": "physics",
+    "architecture": "general_global",
+    "norm": "energy",
+    "epochs": 100,
+    "width": 16,
+    "depth": 2,
+    "learning_rate": 0.003,
+    "seed": 3,
+    "correction_steps": 4
+  }
+}

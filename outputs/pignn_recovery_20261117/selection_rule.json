@@ -1,0 +1,4 @@
+{
+  "rule": "Use only five-seed development validation; primary label-free candidate is physics. Select one hybrid comparator by lowest worst H1 among variants passing all seeds, then mean H1. Do not change either candidate after holdout evaluation.",
+  "holdout_protocol_sha256": "543242149a90c0321a7114d7a8bde696fa3d214cf906d3c07ec3aedbff068685"
+}

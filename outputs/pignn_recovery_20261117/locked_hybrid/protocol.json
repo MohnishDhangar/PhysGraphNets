@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "purpose": "one-time locked evaluation after validation-only model selection; no retraining or tuning on results",
+  "resolutions": [
+    3,
+    5
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "criteria": {
+    "relative_fem_l2": {
+      "mean": 0.05,
+      "max": 0.1
+    },
+    "relative_fem_h1": {
+      "mean": 0.2,
+      "max": 0.4
+    },
+    "max_dirichlet_error": {
+      "max": 1e-12
+    }
+  },
+  "cases": [
+    {
+      "name": "parameter_square",
+      "category": "unseen_parameter",
+      "instance": {
+        "family": "square",
+        "physics": {
+          "offset": 0.9
+        }
+      }
+    },
+    {
+      "name": "quality_square",
+      "category": "mesh_quality_and_parameter",
+      "instance": {
+        "family": "square",
+        "geometry": {
+          "grading": 1.6
+        },
+        "physics": {
+          "offset": 0.95
+        }
+      }
+    },
+    {
+      "name": "parameter_annulus",
+      "category": "unseen_parameter",
+      "instance": {
+        "family": "annulus",
+        "physics": {
+          "inner_value": 0.9
+        }
+      }
+    },
+    {
+      "name": "geometry_annulus",
+      "category": "geometry_parameter_shift",
+      "instance": {
+        "family": "annulus",
+        "geometry": {
+          "inner_radius": 0.4
+        },
+        "physics": {
+          "inner_value": 1.05
+        }
+      }
+    },
+    {
+      "name": "parameter_cylinder",
+      "category": "unseen_parameter",
+      "instance": {
+        "family": "cylinder",
+        "physics": {
+          "diffusivity": 0.9
+        }
+      }
+    },
+    {
+      "name": "geometry_cylinder",
+      "category": "geometry_parameter_shift",
+      "instance": {
+        "family": "cylinder",
+        "geometry": {
+          "radius": 0.25
+        },
+        "physics": {
+          "diffusivity": 1.05
+        }
+      }
+    },
+    {
+      "name": "heldout_airfoil",
+      "category": "heldout_geometry_family",
+      "instance": {
+        "family": "airfoil",
+        "geometry": {
+          "thickness": 0.15
+        },
+        "physics": {
+          "diffusivity": 1.05
+        }
+      }
+    },
+    {
+      "name": "mixed_square",
+      "category": "boundary_and_parameter_shift",
+      "instance": {
+        "family": "square",
+        "physics": {
+          "offset": 0.95,
+          "boundary_mode": "right_neumann"
+        }
+      }
+    },
+    {
+      "name": "mixed_annulus",
+      "category": "boundary_and_parameter_shift",
+      "instance": {
+        "family": "annulus",
+        "physics": {
+          "inner_value": 0.95,
+          "boundary_mode": "inner_neumann"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1037 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-16T22:26:05.357911+00:00",
+  "python": "3.12.13",
+  "executable": "/home/mohnish/Projects/PhysGraphNN/.fenicsx-env/bin/python",
+  "platform": "Linux-7.2.6-arch2-1-x86_64-with-glibc2.44",
+  "machine": "x86_64",
+  "device": "cpu",
+  "precision": "float64",
+  "dependencies": {
+    "physgraph": "0.1.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "pytest": "9.1.1",
+    "torch": "2.10.0+cpu"
+  },
+  "code_revision": "7479abce90e8db9deaf0995bf75d5c0767fae7ce",
+  "git_dirty": true,
+  "revision_note": null,
+  "source_sha256": "937a7168f5e960cb5eb62bf6f1811034d98e291383a8b2ac58dad7069981538a",
+  "source_hash_files": [
+    ".github/workflows/numerical.yml",
+    "configs/environments/fenicsx-linux-64.explicit.txt",
+    "configs/environments/fenicsx.yml",
+    "configs/environments/installed_versions.json",
+    "configs/environments/torch_cpu.txt",
+    "configs/environments/torch_overlay_versions.txt",
+    "configs/experiments/airfoil_local.json",
+    "configs/experiments/annulus_graph_dataset.json",
+    "configs/experiments/annulus_local.json",
+    "configs/experiments/cylinder_flow_qualification.json",
+    "configs/experiments/cylinder_local.json",
+    "configs/experiments/elliptic_cloud.json",
+    "configs/experiments/elliptic_local.json",
+    "configs/experiments/gnn_qualification.json",
+    "configs/experiments/gnn_repair_dataset.json",
+    "configs/experiments/gnn_repair_holdout_protocol.json",
+    "configs/experiments/gnn_repair_qualification.json",
+    "configs/experiments/graph_readiness.json",
+    "configs/experiments/parametric_square_graph_dataset.json",
+    "configs/experiments/periodic_flow.json",
+    "configs/experiments/pignn_communication_ablation.json",
+    "configs/experiments/pignn_hybrid_smoke.json",
+    "configs/experiments/pignn_multigeometry_smoke.json",
+    "configs/experiments/pignn_physics_smoke.json",
+    "configs/experiments/pignn_recovery_architecture.json",
+    "configs/experiments/pignn_recovery_coarse_smoke.json",
+    "configs/experiments/pignn_recovery_local_smoke.json",
+    "configs/experiments/pignn_recovery_locked_holdout.json",
+    "configs/experiments/pignn_recovery_objectives.json",
+    "configs/experiments/pignn_supervised_smoke.json",
+    "configs/experiments/pinn_annulus_cpu.json",
+    "configs/experiments/pinn_cost_cpu.json",
+    "configs/experiments/pinn_local.json",
+    "configs/experiments/pinn_mixed_cpu.json",
+    "configs/experiments/pinn_study_cpu.json",
+    "configs/experiments/pinn_torch_cpu.json",
+    "configs/experiments/poisson_cloud.json",
+    "configs/experiments/poisson_local.json",
+    "pyproject.toml",
+    "scripts/audit_pignn.py",
+    "scripts/check_cylinder_flow.py",
+    "scripts/check_gpu_solver.py",
+    "scripts/check_graph_readiness.py",
+    "scripts/cloud_smoke.py",
+    "scripts/compare_fenicsx.py",
+    "scripts/compare_flow_backends.py",
+    "scripts/diagnose_pignn_transfer.py",
+    "scripts/evaluate_pignn_holdout.py",
+    "scripts/generate_graph_dataset.py",
+    "scripts/import_mesh.py",
+    "scripts/mesh_convergence.py",
+    "scripts/pilot_block_amg.py",
+    "scripts/pilot_gpu_refactor.py",
+    "scripts/probe_flow_gpu.py",
+    "scripts/profile_flow_acceleration.py",
+    "scripts/profile_gpu_solver.py",
+    "scripts/qualify_cylinder_flow.py",
+    "scripts/qualify_gpu_solver.py",
+    "scripts/run_airfoil.py",
+    "scripts/run_annulus.py",
+    "scripts/run_cylinder.py",
+    "scripts/run_cylinder_flow.py",
+    "scripts/run_flow_stream.py",
+    "scripts/run_gnn.py",
+    "scripts/run_gnn_ablations.py",
+    "scripts/run_gnn_study.py",
+    "scripts/run_navier_stokes.py",
+    "scripts/run_obstacle_stokes.py",
+    "scripts/run_periodic_flow.py",
+    "scripts/run_phase1.py",
+    "scripts/run_phase2.py",
+    "scripts/run_pignn.py",
+    "scripts/run_pignn_study.py",
+    "scripts/run_pinn.py",
+    "scripts/run_pinn_cost.py",
+    "scripts/run_pinn_study.py",
+    "scripts/run_stokes.py",
+    "scripts/run_stokes_mixed.py",
+    "scripts/verify_graph_family.py",
+    "src/physgraph/__init__.py",
+    "src/physgraph/core/__init__.py",
+    "src/physgraph/core/domains.py",
+    "src/physgraph/core/flow_state.py",
+    "src/physgraph/core/torch_runtime.py",
+    "src/physgraph/core/types.py",
+    "src/physgraph/datasets/__init__.py",
+    "src/physgraph/datasets/annulus.py",
+    "src/physgraph/datasets/catalog.py",
+    "src/physgraph/datasets/generate.py",
+    "src/physgraph/datasets/instances.py",
+    "src/physgraph/datasets/loading.py",
+    "src/physgraph/datasets/normalization.py",
+    "src/physgraph/datasets/pignn.py",
+    "src/physgraph/evaluation/__init__.py",
+    "src/physgraph/evaluation/acceptance.py",
+    "src/physgraph/evaluation/cylinder_flow.py",
+    "src/physgraph/evaluation/cylinder_study.py",
+    "src/physgraph/evaluation/gpu_flow_study.py",
+    "src/physgraph/evaluation/graph.py",
+    "src/physgraph/evaluation/navier_stokes.py",
+    "src/physgraph/evaluation/obstacle_stokes.py",
+    "src/physgraph/evaluation/pignn.py",
+    "src/physgraph/evaluation/pinn.py",
+    "src/physgraph/evaluation/stokes.py",
+    "src/physgraph/evaluation/torch_pinn.py",
+    "src/physgraph/experiments/__init__.py",
+    "src/physgraph/experiments/airfoil.py",
+    "src/physgraph/experiments/annulus.py",
+    "src/physgraph/experiments/cylinder.py",
+    "src/physgraph/experiments/cylinder_flow.py",
+    "src/physgraph/experiments/cylinder_study.py",
+    "src/physgraph/experiments/elliptic.py",
+    "src/physgraph/experiments/fenicsx.py",
+    "src/physgraph/experiments/flow_acceleration.py",
+    "src/physgraph/experiments/flow_backend_comparison.py",
+    "src/physgraph/experiments/flow_gpu_probe.py",
+    "src/physgraph/experiments/flow_stream.py",
+    "src/physgraph/experiments/gnn_repair.py",
+    "src/physgraph/experiments/gnn_study.py",
+    "src/physgraph/experiments/gpu_flow_segment.py",
+    "src/physgraph/experiments/gpu_flow_study.py",
+    "src/physgraph/experiments/gpu_solver_checks.py",
+    "src/physgraph/experiments/graph_readiness.py",
+    "src/physgraph/experiments/navier_stokes.py",
+    "src/physgraph/experiments/obstacle_stokes.py",
+    "src/physgraph/experiments/parametric_square.py",
+    "src/physgraph/experiments/periodic_flow.py",
+    "src/physgraph/experiments/pignn.py",
+    "src/physgraph/experiments/pignn_forensics.py",
+    "src/physgraph/experiments/pignn_holdout.py",
+    "src/physgraph/experiments/pignn_study.py",
+    "src/physgraph/experiments/pinn.py",
+    "src/physgraph/experiments/pinn_cost.py",
+    "src/physgraph/experiments/pinn_study.py",
+    "src/physgraph/experiments/pipeline.py",
+    "src/physgraph/experiments/smoke.py",
+    "src/physgraph/experiments/stokes.py",
+    "src/physgraph/experiments/stokes_mixed.py",
+    "src/physgraph/fem/__init__.py",
+    "src/physgraph/fem/assembly.py",
+    "src/physgraph/fem/block_amg.py",
+    "src/physgraph/fem/boundary.py",
+    "src/physgraph/fem/cached_flow_solver.py",
+    "src/physgraph/fem/elliptic.py",
+    "src/physgraph/fem/error.py",
+    "src/physgraph/fem/flow_linear_solver.py",
+    "src/physgraph/fem/flow_operators.py",
+    "src/physgraph/fem/geometry.py",
+    "src/physgraph/fem/navier_stokes.py",
+    "src/physgraph/fem/operators.py",
+    "src/physgraph/fem/persistent_rocm.py",
+    "src/physgraph/fem/poisson.py",
+    "src/physgraph/fem/quadrature.py",
+    "src/physgraph/fem/resident_gmres.py",
+    "src/physgraph/fem/rocm_algebra.py",
+    "src/physgraph/fem/rocm_flow_solver.py",
+    "src/physgraph/fem/rocm_refactor.py",
+    "src/physgraph/fem/stokes.py",
+    "src/physgraph/fem/stokes_boundary.py",
+    "src/physgraph/fluids/__init__.py",
+    "src/physgraph/fluids/particles.py",
+    "src/physgraph/fluids/periodic.py",
+    "src/physgraph/graph/__init__.py",
+    "src/physgraph/graph/batching.py",
+    "src/physgraph/graph/mesh.py",
+    "src/physgraph/io/__init__.py",
+    "src/physgraph/io/flow_archive.py",
+    "src/physgraph/io/flow_checkpoint.py",
+    "src/physgraph/io/manifest.py",
+    "src/physgraph/io/mesh_import.py",
+    "src/physgraph/io/pinn_provenance.py",
+    "src/physgraph/io/results.py",
+    "src/physgraph/io/source_snapshot.py",
+    "src/physgraph/losses/__init__.py",
+    "src/physgraph/losses/gnn.py",
+    "src/physgraph/losses/pinn.py",
+    "src/physgraph/losses/torch_pinn.py",
+    "src/physgraph/losses/weak_form.py",
+    "src/physgraph/mesh/__init__.py",
+    "src/physgraph/mesh/airfoil.py",
+    "src/physgraph/mesh/annulus.py",
+    "src/physgraph/mesh/cylinder.py",
+    "src/physgraph/mesh/cylinder_flow.py",
+    "src/physgraph/mesh/nonuniform.py",
+    "src/physgraph/mesh/quality.py",
+    "src/physgraph/mesh/structured.py",
+    "src/physgraph/models/__init__.py",
+    "src/physgraph/models/constraints.py",
+    "src/physgraph/models/fem_messages.py",
+    "src/physgraph/models/general_gnn.py",
+    "src/physgraph/models/global_gnn.py",
+    "src/physgraph/models/gnn.py",
+    "src/physgraph/models/pinn.py",
+    "src/physgraph/models/torch_pinn.py",
+    "src/physgraph/physics/__init__.py",
+    "src/physgraph/physics/airfoil.py",
+    "src/physgraph/physics/annulus.py",
+    "src/physgraph/physics/base.py",
+    "src/physgraph/physics/boundary.py",
+    "src/physgraph/physics/cylinder.py",
+    "src/physgraph/physics/cylinder_flow.py",
+    "src/physgraph/physics/diffusion.py",
+    "src/physgraph/physics/manufactured.py",
+    "src/physgraph/physics/mixed_square.py",
+    "src/physgraph/physics/navier_stokes.py",
+    "src/physgraph/physics/obstacle_stokes.py",
+    "src/physgraph/physics/parametric_square.py",
+    "src/physgraph/physics/periodic_flow.py",
+    "src/physgraph/physics/pinn.py",
+    "src/physgraph/physics/stokes.py",
+    "src/physgraph/physics/torch_pinn.py",
+    "src/physgraph/profiling/__init__.py",
+    "src/physgraph/profiling/block_amg_pilot.py",
+    "src/physgraph/profiling/cost_worker.py",
+    "src/physgraph/profiling/flow_linear.py",
+    "src/physgraph/profiling/flow_linear_worker.py",
+    "src/physgraph/profiling/flow_segments.py",
+    "src/physgraph/profiling/gpu_solver_profile.py",
+    "src/physgraph/profiling/refactor_pilot.py",
+    "src/physgraph/profiling/rocm_sparse.py",
+    "src/physgraph/training/__init__.py",
+    "src/physgraph/training/gnn.py",
+    "src/physgraph/training/pignn.py",
+    "src/physgraph/training/pinn.py",
+    "src/physgraph/training/torch_pinn.py",
+    "src/physgraph/verification/__init__.py",
+    "src/physgraph/verification/cases.py",
+    "src/physgraph/verification/fenicsx.py",
+    "src/physgraph/verification/navier_stokes.py",
+    "src/physgraph/verification/stokes.py",
+    "src/physgraph/visualization/__init__.py",
+    "src/physgraph/visualization/flow.py",
+    "src/physgraph/visualization/pignn_diagnostics.py",
+    "src/physgraph/visualization/pinn.py",
+    "src/physgraph/visualization/plotting.py",
+    "tests/test_airfoil.py",
+    "tests/test_annulus.py",
+    "tests/test_annulus_pinn.py",
+    "tests/test_cached_flow_solver.py",
+    "tests/test_cli.py",
+    "tests/test_cylinder.py",
+    "tests/test_cylinder_flow.py",
+    "tests/test_cylinder_study.py",
+    "tests/test_elliptic.py",
+    "tests/test_fem_messages.py",
+    "tests/test_fenicsx_comparison.py",
+    "tests/test_flow_acceleration.py",
+    "tests/test_flow_archive.py",
+    "tests/test_flow_checkpoint.py",
+    "tests/test_flow_mumps.py",
+    "tests/test_general_gnn.py",
+    "tests/test_gnn.py",
+    "tests/test_gnn_repairs.py",
+    "tests/test_gpu_flow_study.py",
+    "tests/test_graph_data.py",
+    "tests/test_graph_pipeline.py",
+    "tests/test_io.py",
+    "tests/test_mesh.py",
+    "tests/test_mesh_import.py",
+    "tests/test_mixed_pinn.py",
+    "tests/test_navier_stokes.py",
+    "tests/test_obstacle_stokes.py",
+    "tests/test_parametric_square.py",
+    "tests/test_periodic_flow.py",
+    "tests/test_phase2_io_cli.py",
+    "tests/test_pignn.py",
+    "tests/test_pignn_experiment.py",
+    "tests/test_pignn_holdout.py",
+    "tests/test_pignn_instances.py",
+    "tests/test_pignn_recovery.py",
+    "tests/test_pignn_study.py",
+    "tests/test_pinn.py",
+    "tests/test_pinn_cost.py",
+    "tests/test_pinn_study.py",
+    "tests/test_poisson.py",
+    "tests/test_resident_gmres.py",
+    "tests/test_rocm_flow.py",
+    "tests/test_rocm_refactor.py",
+    "tests/test_stokes.py",
+    "tests/test_stokes_mixed.py",
+    "tests/test_torch_pinn.py",
+    "tests/test_weak_form.py"
+  ],
+  "config": {
+    "study": "outputs/pignn_recovery_20261117/objectives",
+    "variant": "physics",
+    "protocol": "configs/experiments/pignn_recovery_locked_holdout.json",
+    "purpose": "post-holdout diagnosis only; not tuning"
+  },
+  "metrics": {
+    "rows": [
+      {
+        "case": "parameter_square",
+        "resolution": 3,
+        "seed": 0,
+        "free_dofs": 4,
+        "coarse_dofs": 1,
+        "jacobi_min_eigenvalue": 0.5044741157222378,
+        "jacobi_max_eigenvalue": 1.4964140705752453,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.14204969210754553,
+            "relative_fem_h1": 0.7781695075100447,
+            "absolute_fem_l2": 0.18077150051195587,
+            "absolute_fem_h1": 1.3051695012915892,
+            "energy_loss": 0.014159357778423873
+          },
+          "pre": {
+            "relative_fem_l2": 0.061016668540029184,
+            "relative_fem_h1": 0.2701974549236215,
+            "absolute_fem_l2": 0.07764940961555114,
+            "absolute_fem_h1": 0.4531833669778787,
+            "energy_loss": 0.0017220596303222401
+          },
+          "coarse": {
+            "relative_fem_l2": 0.025794903261195986,
+            "relative_fem_h1": 0.17077903274928305,
+            "absolute_fem_l2": 0.03282642361911497,
+            "absolute_fem_h1": 0.28643577376560797,
+            "energy_loss": 0.0006512345980008199
+          },
+          "final": {
+            "relative_fem_l2": 0.0064666956216138495,
+            "relative_fem_h1": 0.042757670535023835,
+            "absolute_fem_l2": 0.00822947416167708,
+            "absolute_fem_h1": 0.07171446193921546,
+            "energy_loss": 4.0744651800060846e-05
+          }
+        },
+        "energy_contraction": 0.0028775776724949934
+      },
+      {
+        "case": "quality_square",
+        "resolution": 3,
+        "seed": 0,
+        "free_dofs": 4,
+        "coarse_dofs": 1,
+        "jacobi_min_eigenvalue": 0.5679178424937477,
+        "jacobi_max_eigenvalue": 1.4329373558448588,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.1308579679649077,
+            "relative_fem_h1": 0.9083935311028214,
+            "absolute_fem_l2": 0.1685987851831213,
+            "absolute_fem_h1": 1.3936519926133908,
+            "energy_loss": 0.014936459856291754
+          },
+          "pre": {
+            "relative_fem_l2": 0.03923019173182042,
+            "relative_fem_h1": 0.23632076222956708,
+            "absolute_fem_l2": 0.050544592517740905,
+            "absolute_fem_h1": 0.3625619182660961,
+            "energy_loss": 0.001026222766848366
+          },
+          "coarse": {
+            "relative_fem_l2": 0.027317854293648084,
+            "relative_fem_h1": 0.21860955017839423,
+            "absolute_fem_l2": 0.03519661140507479,
+            "absolute_fem_h1": 0.335389481297342,
+            "energy_loss": 0.0008325075521720676
+          },
+          "final": {
+            "relative_fem_l2": 0.006974436425655126,
+            "relative_fem_h1": 0.05473818356265033,
+            "absolute_fem_l2": 0.008985937402128254,
+            "absolute_fem_h1": 0.08397899806872398,
+            "energy_loss": 5.240017653885186e-05
+          }
+        },
+        "energy_contraction": 0.0035082058963777215
+      },
+      {
+        "case": "parameter_annulus",
+        "resolution": 3,
+        "seed": 0,
+        "free_dofs": 48,
+        "coarse_dofs": 6,
+        "jacobi_min_eigenvalue": 0.2823742742045869,
+        "jacobi_max_eigenvalue": 1.7176257257954135,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.37588280925266826,
+            "relative_fem_h1": 1.8305562663302548,
+            "absolute_fem_l2": 0.9152767288716414,
+            "absolute_fem_h1": 6.094858208240183,
+            "energy_loss": 12.778029745562277
+          },
+          "pre": {
+            "relative_fem_l2": 0.2738756788379827,
+            "relative_fem_h1": 1.323071524768428,
+            "absolute_fem_l2": 0.6668887995774964,
+            "absolute_fem_h1": 4.405181906257163,
+            "energy_loss": 6.675201424887257
+          },
+          "coarse": {
+            "relative_fem_l2": 0.0028497479336406814,
+            "relative_fem_h1": 0.02915511639870409,
+            "absolute_fem_l2": 0.006939152051133198,
+            "absolute_fem_h1": 0.0970722964178917,
+            "energy_loss": 0.0032413601547078017
+          },
+          "final": {
+            "relative_fem_l2": 0.0011321396127535065,
+            "relative_fem_h1": 0.010166190944474584,
+            "absolute_fem_l2": 0.0027567662470312356,
+            "absolute_fem_h1": 0.033848450039005426,
+            "energy_loss": 0.00039410709630143854
+          }
+        },
+        "energy_contraction": 3.0842555867293174e-05
+      },
+      {
+        "case": "geometry_annulus",
+        "resolution": 3,
+        "seed": 0,
+        "free_dofs": 48,
+        "coarse_dofs": 6,
+        "jacobi_min_eigenvalue": 0.21507333472586804,
+        "jacobi_max_eigenvalue": 1.7849266652741316,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.3401847362628517,
+            "relative_fem_h1": 2.023050975724485,
+            "absolute_fem_l2": 0.9197446701470651,
+            "absolute_fem_h1": 5.070349094286883,
+            "energy_loss": 8.15703450562609
+          },
+          "pre": {
+            "relative_fem_l2": 0.26695315555182153,
+            "relative_fem_h1": 1.5811006778123016,
+            "absolute_fem_l2": 0.7217512011121354,
+            "absolute_fem_h1": 3.962694210832265,
+            "energy_loss": 4.982389746201776
+          },
+          "coarse": {
+            "relative_fem_l2": 0.0020494054750179063,
+            "relative_fem_h1": 0.02624621555389442,
+            "absolute_fem_l2": 0.0055409004628635015,
+            "absolute_fem_h1": 0.06578058430509386,
+            "energy_loss": 0.0013729414913461705
+          },
+          "final": {
+            "relative_fem_l2": 0.0009994905469798796,
+            "relative_fem_h1": 0.011778578219884468,
+            "absolute_fem_l2": 0.0027022849806430434,
+            "absolute_fem_h1": 0.02952051338587316,
+            "energy_loss": 0.0002765058908102621
+          }
+        },
+        "energy_contraction": 3.389784493611616e-05
+      },
+      {
+        "case": "parameter_cylinder",
+        "resolution": 3,
+        "seed": 0,
+        "free_dofs": 192,
+        "coarse_dofs": 8,
+        "jacobi_min_eigenvalue": 0.011551196262555284,
+        "jacobi_max_eigenvalue": 2.043502099750155,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.9520059149812699,
+            "relative_fem_h1": 5.57252608412344,
+            "absolute_fem_l2": 2.530222421101003,
+            "absolute_fem_h1": 13.796921581490809,
+            "energy_loss": 3.746250441805455
+          },
+          "pre": {
+            "relative_fem_l2": 0.9276655060399495,
+            "relative_fem_h1": 5.3600279884797395,
+            "absolute_fem_l2": 2.465530965435722,
+            "absolute_fem_h1": 13.270801197745051,
+            "energy_loss": 3.4692686499038077
+          },
+          "coarse": {
+            "relative_fem_l2": 0.023416499256535068,
+            "relative_fem_h1": 0.2547526982350325,
+            "absolute_fem_l2": 0.06223590684701332,
+            "absolute_fem_h1": 0.6307378282599488,
+            "energy_loss": 0.007629039317310228
+          },
+          "final": {
+            "relative_fem_l2": 0.02222033887050912,
+            "relative_fem_h1": 0.23307921589223146,
+            "absolute_fem_l2": 0.059056775519856365,
+            "absolute_fem_h1": 0.5770768257330331,
+            "energy_loss": 0.006391326851878753
+          }
+        },
+        "energy_contraction": 0.0017060596858544618
+      },
+      {
+        "case": "geometry_cylinder",
+        "resolution": 3,
+        "seed": 0,
+        "free_dofs": 192,
+        "coarse_dofs": 8,
+        "jacobi_min_eigenvalue": 0.00943408795004131,
+        "jacobi_max_eigenvalue": 2.042487490764564,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.8538281026111177,
+            "relative_fem_h1": 4.682986099408395,
+            "absolute_fem_l2": 2.287422987876673,
+            "absolute_fem_h1": 11.605923137647443,
+            "energy_loss": 2.1859402559491663
+          },
+          "pre": {
+            "relative_fem_l2": 0.8357878493889557,
+            "relative_fem_h1": 4.533029974532715,
+            "absolute_fem_l2": 2.239092779722018,
+            "absolute_fem_h1": 11.234284353678712,
+            "energy_loss": 2.049841380411149
+          },
+          "coarse": {
+            "relative_fem_l2": 0.013421928228811495,
+            "relative_fem_h1": 0.16232946128034206,
+            "absolute_fem_l2": 0.03595762083530007,
+            "absolute_fem_h1": 0.4023038314876423,
+            "energy_loss": 0.0025521268068237723
+          },
+          "final": {
+            "relative_fem_l2": 0.012613670707333128,
+            "relative_fem_h1": 0.14086795378944306,
+            "absolute_fem_l2": 0.03379228236834181,
+            "absolute_fem_h1": 0.34911541685859077,
+            "energy_loss": 0.0019244128598113488
+          }
+        },
+        "energy_contraction": 0.0008803593120049575
+      },
+      {
+        "case": "heldout_airfoil",
+        "resolution": 3,
+        "seed": 0,
+        "free_dofs": 48,
+        "coarse_dofs": 6,
+        "jacobi_min_eigenvalue": 0.08751411257517851,
+        "jacobi_max_eigenvalue": 1.9259090665457315,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.28077424366868386,
+            "relative_fem_h1": 0.8570107856233873,
+            "absolute_fem_l2": 3.219618286597118,
+            "absolute_fem_h1": 8.544606862959826,
+            "energy_loss": 0.1275249277672353
+          },
+          "pre": {
+            "relative_fem_l2": 0.2167698380001725,
+            "relative_fem_h1": 0.6225160379536411,
+            "absolute_fem_l2": 2.4856843180801067,
+            "absolute_fem_h1": 6.206636951869985,
+            "energy_loss": 0.06832513941082588
+          },
+          "coarse": {
+            "relative_fem_l2": 0.08804685870323002,
+            "relative_fem_h1": 0.4278165938484466,
+            "absolute_fem_l2": 1.0096270678333932,
+            "absolute_fem_h1": 4.265435937572845,
+            "energy_loss": 0.02948728011560361
+          },
+          "final": {
+            "relative_fem_l2": 0.06741158261021205,
+            "relative_fem_h1": 0.31953765772752557,
+            "absolute_fem_l2": 0.773003824226839,
+            "absolute_fem_h1": 3.1858684966335553,
+            "energy_loss": 0.016492226757809765
+          }
+        },
+        "energy_contraction": 0.1293255134236357
+      },
+      {
+        "case": "mixed_square",
+        "resolution": 3,
+        "seed": 0,
+        "free_dofs": 6,
+        "coarse_dofs": 1,
+        "jacobi_min_eigenvalue": 0.31651162149809475,
+        "jacobi_max_eigenvalue": 1.6849494969431804,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.1816740383970843,
+            "relative_fem_h1": 0.78380100412095,
+            "absolute_fem_l2": 0.2463980361570209,
+            "absolute_fem_h1": 1.3491984568659254,
+            "energy_loss": 0.014219988193115396
+          },
+          "pre": {
+            "relative_fem_l2": 0.11771756266523335,
+            "relative_fem_h1": 0.3645426103823885,
+            "absolute_fem_l2": 0.15965614304509265,
+            "absolute_fem_h1": 0.6275066308972193,
+            "energy_loss": 0.003105837481571651
+          },
+          "coarse": {
+            "relative_fem_l2": 0.027795727227045708,
+            "relative_fem_h1": 0.16699536842847346,
+            "absolute_fem_l2": 0.037698356147788575,
+            "absolute_fem_h1": 0.2874580310599922,
+            "energy_loss": 0.0006090618832438819
+          },
+          "final": {
+            "relative_fem_l2": 0.011025063731927923,
+            "relative_fem_h1": 0.053941924697888194,
+            "absolute_fem_l2": 0.01495290177958985,
+            "absolute_fem_h1": 0.09285311090458634,
+            "energy_loss": 6.507947315291709e-05
+          }
+        },
+        "energy_contraction": 0.004576619352217557
+      },
+      {
+        "case": "mixed_annulus",
+        "resolution": 3,
+        "seed": 0,
+        "free_dofs": 72,
+        "coarse_dofs": 8,
+        "jacobi_min_eigenvalue": 0.08180784377138993,
+        "jacobi_max_eigenvalue": 1.9181921562286088,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.4751537173252353,
+            "relative_fem_h1": 1.6063241646075532,
+            "absolute_fem_l2": 1.1719107500071544,
+            "absolute_fem_h1": 5.05113597666002,
+            "energy_loss": 0.5304019037993607
+          },
+          "pre": {
+            "relative_fem_l2": 0.4220357691373281,
+            "relative_fem_h1": 1.252504448265882,
+            "absolute_fem_l2": 1.040901579227327,
+            "absolute_fem_h1": 3.938538944353223,
+            "energy_loss": 0.3224758845863374
+          },
+          "coarse": {
+            "relative_fem_l2": 0.02139262516538784,
+            "relative_fem_h1": 0.1360354425033583,
+            "absolute_fem_l2": 0.05276239349092873,
+            "absolute_fem_h1": 0.4277676529241872,
+            "energy_loss": 0.00380402039028692
+          },
+          "final": {
+            "relative_fem_l2": 0.017764923496245595,
+            "relative_fem_h1": 0.08491040033216188,
+            "absolute_fem_l2": 0.04381509406155962,
+            "absolute_fem_h1": 0.26700337787371353,
+            "energy_loss": 0.0014820418444600012
+          }
+        },
+        "energy_contraction": 0.0027941865099726806
+      },
+      {
+        "case": "parameter_square",
+        "resolution": 5,
+        "seed": 0,
+        "free_dofs": 16,
+        "coarse_dofs": 2,
+        "jacobi_min_eigenvalue": 0.19375959784600733,
+        "jacobi_max_eigenvalue": 1.8070809683188496,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.22653624563028701,
+            "relative_fem_h1": 0.9995647739522168,
+            "absolute_fem_l2": 0.29945843824760426,
+            "absolute_fem_h1": 1.8483447018863817,
+            "energy_loss": 0.028715935360441393
+          },
+          "pre": {
+            "relative_fem_l2": 0.16732876594485585,
+            "relative_fem_h1": 0.6741845131648635,
+            "absolute_fem_l2": 0.2211920250745349,
+            "absolute_fem_h1": 1.2466679553692384,
+            "energy_loss": 0.013123667364411855
+          },
+          "coarse": {
+            "relative_fem_l2": 0.0731128588328454,
+            "relative_fem_h1": 0.4102147573714802,
+            "absolute_fem_l2": 0.09664794461912926,
+            "absolute_fem_h1": 0.7585484134512215,
+            "energy_loss": 0.0046053211732972905
+          },
+          "final": {
+            "relative_fem_l2": 0.044019375288320596,
+            "relative_fem_h1": 0.2410873149132871,
+            "absolute_fem_l2": 0.0581892462276831,
+            "absolute_fem_h1": 0.44580648780775256,
+            "energy_loss": 0.0015906056425776512
+          }
+        },
+        "energy_contraction": 0.05539104412279893
+      },
+      {
+        "case": "quality_square",
+        "resolution": 5,
+        "seed": 0,
+        "free_dofs": 16,
+        "coarse_dofs": 2,
+        "jacobi_min_eigenvalue": 0.23720669461545213,
+        "jacobi_max_eigenvalue": 1.763728080594035,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.2323477707990823,
+            "relative_fem_h1": 1.716055264833598,
+            "absolute_fem_l2": 0.31406183414282307,
+            "absolute_fem_h1": 3.065842605852101,
+            "energy_loss": 0.06597133033934205
+          },
+          "pre": {
+            "relative_fem_l2": 0.15588555883872304,
+            "relative_fem_h1": 0.8098621198307434,
+            "absolute_fem_l2": 0.21070873353720893,
+            "absolute_fem_h1": 1.4468705307597158,
+            "energy_loss": 0.01543948393810367
+          },
+          "coarse": {
+            "relative_fem_l2": 0.07018895289350013,
+            "relative_fem_h1": 0.5469761142805133,
+            "absolute_fem_l2": 0.09487360780990083,
+            "absolute_fem_h1": 0.9772078498341571,
+            "energy_loss": 0.0068793925160020005
+          },
+          "final": {
+            "relative_fem_l2": 0.03835585191695353,
+            "relative_fem_h1": 0.2660371878316191,
+            "absolute_fem_l2": 0.05184516796404108,
+            "absolute_fem_h1": 0.4752924698344989,
+            "energy_loss": 0.0016618229540906458
+          }
+        },
+        "energy_contraction": 0.025190077955720962
+      },
+      {
+        "case": "parameter_annulus",
+        "resolution": 5,
+        "seed": 0,
+        "free_dofs": 160,
+        "coarse_dofs": 8,
+        "jacobi_min_eigenvalue": 0.10731299789987295,
+        "jacobi_max_eigenvalue": 1.8926870021001283,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 1.0474075710735362,
+            "relative_fem_h1": 5.679682240093273,
+            "absolute_fem_l2": 2.5666495869190893,
+            "absolute_fem_h1": 18.84645418512211,
+            "energy_loss": 121.3899269525179
+          },
+          "pre": {
+            "relative_fem_l2": 0.9177682205240348,
+            "relative_fem_h1": 4.455833045753213,
+            "absolute_fem_l2": 2.2489711638050602,
+            "absolute_fem_h1": 14.785449221180714,
+            "energy_loss": 74.71234917207322
+          },
+          "coarse": {
+            "relative_fem_l2": 0.03895697702588079,
+            "relative_fem_h1": 0.4025915740789328,
+            "absolute_fem_l2": 0.09546322916933869,
+            "absolute_fem_h1": 1.3358887584651564,
+            "energy_loss": 0.6099074446453038
+          },
+          "final": {
+            "relative_fem_l2": 0.02544348810309162,
+            "relative_fem_h1": 0.25880622181048335,
+            "absolute_fem_l2": 0.06234871699719267,
+            "absolute_fem_h1": 0.8587768463074659,
+            "energy_loss": 0.2520484305570806
+          }
+        },
+        "energy_contraction": 0.002076353754258953
+      },
+      {
+        "case": "geometry_annulus",
+        "resolution": 5,
+        "seed": 0,
+        "free_dofs": 160,
+        "coarse_dofs": 8,
+        "jacobi_min_eigenvalue": 0.08110492372851771,
+        "jacobi_max_eigenvalue": 1.9188950762714807,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 1.0059424935812589,
+            "relative_fem_h1": 6.611378061071139,
+            "absolute_fem_l2": 2.7378655176847615,
+            "absolute_fem_h1": 16.491901470705706,
+            "energy_loss": 85.94063960565681
+          },
+          "pre": {
+            "relative_fem_l2": 0.9066168245185279,
+            "relative_fem_h1": 5.442434730696689,
+            "absolute_fem_l2": 2.4675316506068494,
+            "absolute_fem_h1": 13.576004353448631,
+            "energy_loss": 58.23727636474762
+          },
+          "coarse": {
+            "relative_fem_l2": 0.02115381147174898,
+            "relative_fem_h1": 0.292774317749845,
+            "absolute_fem_l2": 0.057574156938055086,
+            "absolute_fem_h1": 0.730317515785999,
+            "energy_loss": 0.1685312927681787
+          },
+          "final": {
+            "relative_fem_l2": 0.015641893095351973,
+            "relative_fem_h1": 0.19738430241850488,
+            "absolute_fem_l2": 0.042572413443449135,
+            "absolute_fem_h1": 0.49236973551964214,
+            "energy_loss": 0.0766019489266055
+          }
+        },
+        "energy_contraction": 0.0008913355692731356
+      },
+      {
+        "case": "parameter_cylinder",
+        "resolution": 5,
+        "seed": 0,
+        "free_dofs": 640,
+        "coarse_dofs": 8,
+        "jacobi_min_eigenvalue": 0.004058246010290409,
+        "jacobi_max_eigenvalue": 2.1362796168370135,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 1.2657756036677086,
+            "relative_fem_h1": 8.475892598455406,
+            "absolute_fem_l2": 3.351351192632774,
+            "absolute_fem_h1": 21.06411549951265,
+            "energy_loss": 8.655446030623887
+          },
+          "pre": {
+            "relative_fem_l2": 1.2475010266918276,
+            "relative_fem_h1": 8.12315305700022,
+            "absolute_fem_l2": 3.302966214153558,
+            "absolute_fem_h1": 20.18749438189594,
+            "energy_loss": 7.962523509701648
+          },
+          "coarse": {
+            "relative_fem_l2": 0.07815333821651779,
+            "relative_fem_h1": 0.8330727507026805,
+            "absolute_fem_l2": 0.20692394645719406,
+            "absolute_fem_h1": 2.0703354173571995,
+            "energy_loss": 0.08223029156588825
+          },
+          "final": {
+            "relative_fem_l2": 0.07662483049755305,
+            "relative_fem_h1": 0.7902704130675725,
+            "absolute_fem_l2": 0.2028769683419122,
+            "absolute_fem_h1": 1.9639639204178267,
+            "energy_loss": 0.0740529741058355
+          }
+        },
+        "energy_contraction": 0.008555650840387452
+      },
+      {
+        "case": "geometry_cylinder",
+        "resolution": 5,
+        "seed": 0,
+        "free_dofs": 640,
+        "coarse_dofs": 8,
+        "jacobi_min_eigenvalue": 0.0032313255939949398,
+        "jacobi_max_eigenvalue": 2.129451835859719,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 1.2153200441137957,
+            "relative_fem_h1": 7.615541167795997,
+            "absolute_fem_l2": 3.2417139408712843,
+            "absolute_fem_h1": 18.959039932246952,
+            "energy_loss": 5.782307613367316
+          },
+          "pre": {
+            "relative_fem_l2": 1.200263950224547,
+            "relative_fem_h1": 7.342385010707952,
+            "absolute_fem_l2": 3.201553696915598,
+            "absolute_fem_h1": 18.27901229194333,
+            "energy_loss": 5.3821223999586065
+          },
+          "coarse": {
+            "relative_fem_l2": 0.062394545932305985,
+            "relative_fem_h1": 0.647789071810941,
+            "absolute_fem_l2": 0.16642963338153502,
+            "absolute_fem_h1": 1.6126836700813447,
+            "energy_loss": 0.04111712371738027
+          },
+          "final": {
+            "relative_fem_l2": 0.06139821992554683,
+            "relative_fem_h1": 0.6118037917626875,
+            "absolute_fem_l2": 0.16377205859585878,
+            "absolute_fem_h1": 1.5230976056933063,
+            "energy_loss": 0.03670733528105975
+          }
+        },
+        "energy_contraction": 0.0063482155802643825
+      },
+      {
+        "case": "heldout_airfoil",
+        "resolution": 5,
+        "seed": 0,
+        "free_dofs": 160,
+        "coarse_dofs": 8,
+        "jacobi_min_eigenvalue": 0.0286437710993806,
+        "jacobi_max_eigenvalue": 2.0629051717896685,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.42857576810839754,
+            "relative_fem_h1": 1.5259981400455793,
+            "absolute_fem_l2": 4.892303916829798,
+            "absolute_fem_h1": 15.279462853095145,
+            "energy_loss": 0.38982726937486384
+          },
+          "pre": {
+            "relative_fem_l2": 0.3616331317760852,
+            "relative_fem_h1": 1.1400491927282188,
+            "absolute_fem_l2": 4.128136303301423,
+            "absolute_fem_h1": 11.41504621393027,
+            "energy_loss": 0.22291176082192105
+          },
+          "coarse": {
+            "relative_fem_l2": 0.12408793188532873,
+            "relative_fem_h1": 0.5860260022489386,
+            "absolute_fem_l2": 1.4164960325996738,
+            "absolute_fem_h1": 5.867741445637058,
+            "energy_loss": 0.05528371285429761
+          },
+          "final": {
+            "relative_fem_l2": 0.1066545258055271,
+            "relative_fem_h1": 0.4481013294961083,
+            "absolute_fem_l2": 1.217489165682443,
+            "absolute_fem_h1": 4.486733921087107,
+            "energy_loss": 0.03277119744586428
+          }
+        },
+        "energy_contraction": 0.08406594412550189
+      },
+      {
+        "case": "mixed_square",
+        "resolution": 5,
+        "seed": 0,
+        "free_dofs": 20,
+        "coarse_dofs": 2,
+        "jacobi_min_eigenvalue": 0.12027295949753354,
+        "jacobi_max_eigenvalue": 1.8806594227133655,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 0.25537981212143246,
+            "relative_fem_h1": 0.9516454053968229,
+            "absolute_fem_l2": 0.3536246291733358,
+            "absolute_fem_h1": 1.7734438643491142,
+            "energy_loss": 0.02474447206601613
+          },
+          "pre": {
+            "relative_fem_l2": 0.214861532437859,
+            "relative_fem_h1": 0.646582037839073,
+            "absolute_fem_l2": 0.2975189350355701,
+            "absolute_fem_h1": 1.2049414007583028,
+            "energy_loss": 0.011396695398224283
+          },
+          "coarse": {
+            "relative_fem_l2": 0.08238148744626823,
+            "relative_fem_h1": 0.45603225061632335,
+            "absolute_fem_l2": 0.11407371125749818,
+            "absolute_fem_h1": 0.8498413297793412,
+            "energy_loss": 0.005445116848419202
+          },
+          "final": {
+            "relative_fem_l2": 0.05710310443322682,
+            "relative_fem_h1": 0.25515509066780717,
+            "absolute_fem_l2": 0.0790707141731483,
+            "absolute_fem_h1": 0.47549562834654463,
+            "energy_loss": 0.0017052337577306547
+          }
+        },
+        "energy_contraction": 0.06891372558611221
+      },
+      {
+        "case": "mixed_annulus",
+        "resolution": 5,
+        "seed": 0,
+        "free_dofs": 200,
+        "coarse_dofs": 8,
+        "jacobi_min_eigenvalue": 0.031083280254021736,
+        "jacobi_max_eigenvalue": 1.968916719745977,
+        "stages": {
+          "raw": {
+            "relative_fem_l2": 1.1024188385909377,
+            "relative_fem_h1": 5.101255107496534,
+            "absolute_fem_l2": 2.73181683767763,
+            "absolute_fem_h1": 16.095624069656328,
+            "energy_loss": 5.374278076840362
+          },
+          "pre": {
+            "relative_fem_l2": 1.012134934761663,
+            "relative_fem_h1": 3.80374451141012,
+            "absolute_fem_l2": 2.5080914440084476,
+            "absolute_fem_h1": 12.001682021882194,
+            "energy_loss": 2.9880559570560217
+          },
+          "coarse": {
+            "relative_fem_l2": 0.09048467657332263,
+            "relative_fem_h1": 0.4614826901491583,
+            "absolute_fem_l2": 0.22422291270962075,
+            "absolute_fem_h1": 1.4560832067345482,
+            "energy_loss": 0.04398219300958399
+          },
+          "final": {
+            "relative_fem_l2": 0.08531122071885053,
+            "relative_fem_h1": 0.3808369418942394,
+            "absolute_fem_l2": 0.211402981375453,
+            "absolute_fem_h1": 1.2016274660640254,
+            "energy_loss": 0.02995326626206763
+          }
+        },
+        "energy_contraction": 0.005573449277056708
+      }
+    ]
+  },
+  "elapsed_seconds": 4.477353003981989
+}
